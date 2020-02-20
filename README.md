@@ -3,7 +3,7 @@ A more improved flash card app than the last
 
 ## Planned Modes:
 
-1) Lesson Mode (lvl 0): User is presented with a set number of cards to learn
+1) [] Lesson Mode (lvl 0): User is presented with a set number of cards to learn
 
 2) Challenge Mode: User is tested based on the cards exposed to them, difficulty level based on how many times they have gotten it correct.
 
