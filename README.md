@@ -1,5 +1,5 @@
 # JPNStudy
-A more improved flash card app than the last
+The second time I am making a flash card app. The first one was very clunky and very crowded. A bit of time has passed and now I will attempt another flash card app, this time a lot simpler and hopefully will perform a lot smoother.
 
 ## Planned Modes:
 
