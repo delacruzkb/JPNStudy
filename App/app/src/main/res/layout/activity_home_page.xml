@@ -7,7 +7,7 @@
     tools:context=".Pages.HomePage">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/home_lesson_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/home_challenge_button"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="48dp"
@@ -27,10 +27,10 @@
         android:text="Challenge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/home_lesson_button" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/home_settings_button"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="50dp"
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/home_challenge_button" />
 
     <TextView
         android:id="@+id/textView2"

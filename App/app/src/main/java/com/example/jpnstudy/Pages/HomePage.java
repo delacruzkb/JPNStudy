@@ -5,8 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
+import com.example.jpnstudy.Dialogs.ChallengeMenuDialog;
+import com.example.jpnstudy.Dialogs.LessonMenuDialog;
 import com.example.jpnstudy.R;
 //TODO: stylize home page
 public class HomePage extends AppCompatActivity {
@@ -16,17 +17,17 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
     }
     //TODO: navigation for the page & material design
-    //TODO: App Bar, hide settings there
     public void lesson(View view){
-        Intent intent = new Intent(this,LessonMenu.class);
-        startActivity(intent);
+        LessonMenuDialog lessonMenuDialog = new LessonMenuDialog();
+        lessonMenuDialog.show(getSupportFragmentManager(),"lesson dialog");
     }
     public void challenge(View view){
-        Intent intent = new Intent(this,ChallengeMenu.class);
-        startActivity(intent);
+        ChallengeMenuDialog challengeMenuDialog= new ChallengeMenuDialog();
+        challengeMenuDialog.show(getSupportFragmentManager(),"challenge dialog");
     }
     public void settings(View view){
         Intent intent = new Intent(this,SettingsPage.class);
         startActivity(intent);
     }
+
 }

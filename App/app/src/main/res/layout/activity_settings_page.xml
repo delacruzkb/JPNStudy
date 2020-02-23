@@ -6,11 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".Pages.SettingsPage">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="210dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/settings_add_new_term_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addNewTerm"
+            android:text="Add Term" />
+
+        <Button
+            android:id="@+id/settings_edit_remove_term_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:onClick="editRemoveTerm"
+            android:text="Edit / Remove Term" />
+
+        <Button
+            android:id="@+id/settings_clear_database_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clearDatabase"
+            android:text="Clear Database" />
+
+        <Button
+            android:id="@+id/settings_default_database_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:onClick="defaultDatabase"
+            android:text="Default database" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

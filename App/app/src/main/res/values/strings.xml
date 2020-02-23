@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">JPNStudy</string>
-    <string name="edit_message">Enter a message</string>
-    <string name="button_send">Send</string>
+    <string-array name="flashCardPairings">
+        <item>English front, Japanses back</item>
+        <item>English front, Kanji back</item>
+        <item>Japanese front, English back</item>
+        <item>Japanese front, Kanji back</item>
+        <item>Kanji front, English back</item>
+        <item>Kanji front, Japanese back</item>
+    </string-array>
+    <string-array name="challengeLevels">
+        <item>(1) Multiple Choice</item>
+        <item>(2) Character Choice</item>
+        <item>(3) Key-in</item>
+        <item>Mixed</item>
+        <item>Weighted</item>
+    </string-array>
 </resources>

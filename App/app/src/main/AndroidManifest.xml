@@ -9,56 +9,51 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Pages.HomePage"
+        <activity android:name=".Dialogs.LessonMenuDialog"></activity>
+        <activity
+            android:name=".Pages.HomePage"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-            <activity android:name=".Pages.LessonMenu"
+        <activity
+            android:name=".Pages.LessonPage"
             android:parentActivityName=".Pages.HomePage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Pages.HomePage" />
         </activity>
-                <activity android:name=".Pages.LessonPage"
-            android:parentActivityName=".Pages.LessonMenu">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.LessonMenu"  />
-        </activity>
-            <activity android:name=".Pages.ChallengeMenu"
+        <activity
+            android:name=".Pages.ChallengePage"
             android:parentActivityName=".Pages.HomePage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.HomePage"  />
+                android:value=".Pages.HomePage" />
         </activity>
-                <activity android:name=".Pages.ChallengePage"
-            android:parentActivityName=".Pages.ChallengeMenu">
+        <activity
+            android:name=".Pages.SettingsPage"
+            android:parentActivityName=".Pages.HomePage"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.ChallengeMenu"  />
+                android:value=".Pages.HomePage" />
         </activity>
-            <activity android:name=".Pages.SettingsPage"
-            android:parentActivityName=".Pages.HomePage">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.HomePage"  />
-        </activity>
-                <activity android:name=".Pages.AddCardPage"
+        <activity
+            android:name=".Pages.AddCardPage"
             android:parentActivityName=".Pages.SettingsPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.HomePage"  />
+                android:value=".Pages.HomePage" />
         </activity>
-                <activity android:name=".Pages.SearchPage"
+        <activity
+            android:name=".Pages.SearchPage"
             android:parentActivityName=".Pages.SettingsPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.HomePage"  />
+                android:value=".Pages.HomePage" />
         </activity>
     </application>
 
