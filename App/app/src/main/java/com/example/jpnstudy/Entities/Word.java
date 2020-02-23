@@ -1,24 +1,25 @@
 package com.example.jpnstudy.Entities;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Fts4;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Fts4
 @Entity
 public class Word extends FlashCard{
 
+    @Ignore
     @PrimaryKey
     @ColumnInfo(name = "rowid")
     public int id;
 
-    @NonNull
+
     @ColumnInfo(name = "word_japanese")
     String japanese;
 
-    @NonNull
+
     @ColumnInfo(name = "word_english")
     String english;
 
@@ -26,7 +27,7 @@ public class Word extends FlashCard{
     @ColumnInfo(name = "word_kanji")
     String kanji;
 
-    @NonNull
+
     @ColumnInfo(name = "word_type")
     String type;
 
