@@ -1,8 +1,21 @@
 package com.example.jpnstudy.Entities;
 
+import androidx.room.ColumnInfo;
+
 public class FlashCard {
-    boolean isStarred,isKnown,isMastered;
+
+    @ColumnInfo(name= "card_starred")
+    boolean isStarred;
+
+    @ColumnInfo(name= "card_known")
+    boolean isKnown;
+
+    @ColumnInfo(name= "card_mastered")
+    boolean isMastered;
+
+    @ColumnInfo(name= "card_right_counter")
     int rightCounter;
+
 
     public boolean isStarred() {
         return isStarred;

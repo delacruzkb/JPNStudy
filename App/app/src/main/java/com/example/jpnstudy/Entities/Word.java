@@ -1,9 +1,36 @@
 package com.example.jpnstudy.Entities;
 
-public class Word {
-    //TODO: implement word
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Fts4;
+import androidx.room.PrimaryKey;
 
-    String japanese,english,kanji,type;
+@Fts4
+@Entity
+public class Word extends FlashCard{
+
+    @PrimaryKey
+    @ColumnInfo(name = "rowid")
+    public int id;
+
+    @NonNull
+    @ColumnInfo(name = "word_japanese")
+    String japanese;
+
+    @NonNull
+    @ColumnInfo(name = "word_english")
+    String english;
+
+
+    @ColumnInfo(name = "word_kanji")
+    String kanji;
+
+    @NonNull
+    @ColumnInfo(name = "word_type")
+    String type;
+
+
 
     public String getJapanese() {
         return japanese;

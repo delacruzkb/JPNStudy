@@ -1,9 +1,29 @@
 package com.example.jpnstudy.Entities;
 
-public class Grammar {
-    //TODO: implement grammar
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Fts4;
+import androidx.room.PrimaryKey;
 
-    String name,definition,example;
+@Fts4
+@Entity(primaryKeys = {"grammar_name", "grammar_definition"})
+public class Grammar extends FlashCard{
+
+    @PrimaryKey
+    @ColumnInfo(name = "rowid")
+    public int id;
+
+    @NonNull
+    @ColumnInfo(name = "grammar_name")
+    String name;
+
+    @NonNull
+    @ColumnInfo(name = "grammar_definition")
+    String definition;
+
+    @ColumnInfo(name= "grammar_example")
+    String example;
 
     public String getName() {
         return name;
