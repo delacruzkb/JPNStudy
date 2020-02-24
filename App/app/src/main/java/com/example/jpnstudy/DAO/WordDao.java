@@ -16,6 +16,9 @@ public interface WordDao {
     @Delete
     void delete(Word word);
 
+    @Query("delete from word")
+    public void deleteAllWords();
+
     @Query("select * from word " +
             "where word_english LIKE '%' || (:english) || '%'")
     List<Word> searchEnglish(String english);

@@ -16,6 +16,9 @@ public interface GrammarDao {
     @Delete
     void delete(Grammar grammar);
 
+    @Query("delete from grammar")
+    void deleteAllGrammar();
+
     @Query("select * from grammar " +
             "where grammar_name LIKE '%' || (:name) || '%'")
     List<Grammar> searchGrammarName(String name);

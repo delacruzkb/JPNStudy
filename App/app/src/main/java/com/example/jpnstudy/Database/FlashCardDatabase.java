@@ -9,7 +9,7 @@ import com.example.jpnstudy.DAO.WordDao;
 import com.example.jpnstudy.Entities.Grammar;
 import com.example.jpnstudy.Entities.Word;
 
-@Database(entities = {Word.class, Grammar.class}, version = 1)
+@Database(entities = {Word.class, Grammar.class}, version = 1, exportSchema = false)
 public abstract class FlashCardDatabase extends RoomDatabase{
     public abstract WordDao wordDao();
     public abstract GrammarDao grammarDao();
