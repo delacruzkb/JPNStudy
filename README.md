@@ -40,3 +40,4 @@ The second time I am making a flash card app. The first one was very clunky and 
 Ordeal: Form a Sentence
 
 Ordeal: Kanji Writing
+https://www.geeksforgeeks.org/image-processing-java-set-14-comparison-two-images/
