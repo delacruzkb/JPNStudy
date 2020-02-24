@@ -36,6 +36,6 @@ The second time I am making a flash card app. The first one was very clunky and 
 [ ] + Default data : populates default data
 
 
-Stretch Goal:
+#### Stretch Goal:
 Ordeal: Form a Centence
 Ordeal: Kanji Writing
