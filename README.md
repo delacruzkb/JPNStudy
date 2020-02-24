@@ -3,11 +3,13 @@ The second time I am making a flash card app. The first one was very clunky and 
 
 ## Planned Modes:
 
-[ ] 1) Learn Mode: User is presented with a set number of cards to learn
+### [ ] 1) Learn Mode: User is presented with a set number of cards to learn
 
-[ ] 2) Hone Mode: User practices a set number of cards that they have previously learned
 
-[ ] 3) Ordeal Mode: User is tested based on the cards exposed to them, difficulty level based on how many times they have gotten it correct.
+### [ ] 2) Hone Mode: User practices a set number of cards that they have previously learned
+
+
+### [ ] 3) Ordeal Mode: User is tested based on the cards exposed to them, difficulty level based on how many times they have gotten it correct.
 
 [ ] + Weighted: cards presented are based on how many times it has been correctly guessed by the user
 
@@ -19,9 +21,11 @@ The second time I am making a flash card app. The first one was very clunky and 
   
 [ ] + Type of Verb (EX 1) : User must determine what type of verb it is.
 
-[ ] 4) Records : Shows User stats
+
+### [ ] 4) Records : Shows User stats
+
   
-[ ] 5) Settings
+### [ ] 5) Settings
 
 [ ] + Add : Add new cards
   
@@ -30,6 +34,7 @@ The second time I am making a flash card app. The first one was very clunky and 
 [ ] + Clear : removes all info
   
 [ ] + Default data : populates default data
+
 
 Stretch Goal:
 Ordeal: Form a Centence
