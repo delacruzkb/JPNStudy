@@ -37,5 +37,6 @@ The second time I am making a flash card app. The first one was very clunky and 
 
 
 #### Stretch Goal:
-Ordeal: Form a Centence
+Ordeal: Form a Sentence
+
 Ordeal: Kanji Writing
