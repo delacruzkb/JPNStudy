@@ -24,8 +24,8 @@ public interface WordDao {
     List<Word> searchEnglish(String english);
 
     @Query("select * from word " +
-            "where word_japanese LIKE '%' || (:japanese) || '%'")
-    List<Word> searchJapanese(String japanese);
+            "where word_hiragana LIKE '%' || (:hiragana) || '%'")
+    List<Word> searchHiragana(String hiragana);
 
     @Query("select * from word " +
             "where word_kanji LIKE '%' || (:kanji) || '%'")

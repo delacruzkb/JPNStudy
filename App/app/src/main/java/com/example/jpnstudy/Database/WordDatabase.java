@@ -7,8 +7,9 @@ import androidx.room.Room;
 import com.example.jpnstudy.AsyncTasks.DeleteWord;
 import com.example.jpnstudy.AsyncTasks.DeleteWordAll;
 import com.example.jpnstudy.AsyncTasks.InsertWord;
+import com.example.jpnstudy.AsyncTasks.InsertWordList;
 import com.example.jpnstudy.AsyncTasks.SearchWordEnglish;
-import com.example.jpnstudy.AsyncTasks.SearchWordJapanese;
+import com.example.jpnstudy.AsyncTasks.SearchWordHiragana;
 import com.example.jpnstudy.AsyncTasks.SearchWordKanji;
 import com.example.jpnstudy.AsyncTasks.SearchWordKnown;
 import com.example.jpnstudy.AsyncTasks.SearchWordMastered;
@@ -17,7 +18,9 @@ import com.example.jpnstudy.AsyncTasks.SearchWordType;
 import com.example.jpnstudy.Entities.Word;
 
 import java.util.ArrayList;
-
+import com.opencsv.CSVReader;
+import java.io.IOException;
+import java.io.FileReader;
 
 public class WordDatabase {
     private FlashCardDatabase db;
@@ -26,9 +29,47 @@ public class WordDatabase {
         db = Room.databaseBuilder(context.getApplicationContext(), FlashCardDatabase.class, "word").build();
     }
 
+    public void revertDefault()
+    {
+        deleteAllWords();
+
+        try {
+            ArrayList<Word> wordList= new ArrayList<>();
+            Word word;
+            CSVReader reader = new CSVReader(new FileReader("jpns(words).csv"));
+            String[] nextLine;
+            while ((nextLine = reader.readNext()) != null) {
+                // nextLine[] is an array of values from the line
+                //hiragana,english,kanji,type
+                word = new Word();
+                word.setHiragana(nextLine[0]);
+                word.setEnglish(nextLine[1]);
+                if(nextLine[2].equals("null"))
+                {
+                    word.setKanji(null);
+                }
+                else
+                {
+                    word.setKanji(nextLine[2]);
+                }
+                word.setType(nextLine[3]);
+                wordList.add(word);
+            }
+            InsertWordList insertWordList = new InsertWordList(db);
+            insertWordList.execute(wordList);
+        } catch (IOException e) {
+
+        }
+    }
+
     public void insertWord(Word word){
         InsertWord insertWord = new InsertWord(db);
         insertWord.execute(word);
+    }
+
+    public void insertWordList(ArrayList<Word> list){
+        InsertWordList insertWordList = new InsertWordList(db);
+        insertWordList.execute(list);
     }
 
     public void deleteWord(Word word){
@@ -54,11 +95,11 @@ public class WordDatabase {
         return rtnval;
     }
 
-    public ArrayList<Word> searchJapanese(String search){
-        SearchWordJapanese searchWordJapanese = new SearchWordJapanese(db, search);
+    public ArrayList<Word> searchHiragana(String search){
+        SearchWordHiragana searchWordHiragana = new SearchWordHiragana(db, search);
         ArrayList<Word> rtnval=null;
         try{
-            rtnval= searchWordJapanese.execute().get();
+            rtnval= searchWordHiragana.execute().get();
         }
         catch (Exception e)
         {
@@ -170,6 +211,8 @@ public class WordDatabase {
         }
         return rtnval;
     }
+
+
 
 
 

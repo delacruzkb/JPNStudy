@@ -7,7 +7,7 @@ import androidx.room.Query;
 
 import com.example.jpnstudy.Entities.Grammar;
 import java.util.List;
-
+//TODO: implement into AsyncTasks
 @Dao
 public interface GrammarDao {
     @Insert

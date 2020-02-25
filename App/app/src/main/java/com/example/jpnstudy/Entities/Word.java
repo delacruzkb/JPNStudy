@@ -16,8 +16,8 @@ public class Word extends FlashCard{
     public int id;
 
 
-    @ColumnInfo(name = "word_japanese")
-    String japanese;
+    @ColumnInfo(name = "word_hiragana")
+    String hiragana;
 
 
     @ColumnInfo(name = "word_english")
@@ -32,13 +32,12 @@ public class Word extends FlashCard{
     String type;
 
 
-
-    public String getJapanese() {
-        return japanese;
+    public String getHiragana() {
+        return hiragana;
     }
 
-    public void setJapanese(String japanese) {
-        this.japanese = japanese;
+    public void setHiragana(String hiragana) {
+        this.hiragana = hiragana;
     }
 
     public String getEnglish() {
