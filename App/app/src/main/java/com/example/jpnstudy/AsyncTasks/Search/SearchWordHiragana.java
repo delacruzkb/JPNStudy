@@ -1,4 +1,4 @@
-package com.example.jpnstudy.AsyncTasks;
+package com.example.jpnstudy.AsyncTasks.Search;
 
 import android.os.AsyncTask;
 
@@ -7,17 +7,16 @@ import com.example.jpnstudy.Entities.Word;
 
 import java.util.ArrayList;
 
-public class SearchWordKanji extends AsyncTask<Void,Void, ArrayList<Word>> {
+public class SearchWordHiragana extends AsyncTask<Void,Void, ArrayList<Word>> {
     private FlashCardDatabase fcdb;
     private String searchKey;
-    public SearchWordKanji(FlashCardDatabase db, String search)
-    {
-        fcdb=db;
+    public SearchWordHiragana(FlashCardDatabase db, String search) {
+        fcdb = db;
         searchKey = search;
     }
 
     @Override
     protected ArrayList<Word> doInBackground(Void... voids) {
-        return (ArrayList)fcdb.wordDao().searchKanji(searchKey);
+        return (ArrayList)fcdb.wordDao().searchHiragana(searchKey);
     }
 }

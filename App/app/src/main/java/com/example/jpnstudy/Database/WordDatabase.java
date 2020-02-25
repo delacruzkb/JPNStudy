@@ -4,17 +4,17 @@ import android.content.Context;
 
 import androidx.room.Room;
 
-import com.example.jpnstudy.AsyncTasks.DeleteWord;
-import com.example.jpnstudy.AsyncTasks.DeleteWordAll;
-import com.example.jpnstudy.AsyncTasks.InsertWord;
-import com.example.jpnstudy.AsyncTasks.InsertWordList;
-import com.example.jpnstudy.AsyncTasks.SearchWordEnglish;
-import com.example.jpnstudy.AsyncTasks.SearchWordHiragana;
-import com.example.jpnstudy.AsyncTasks.SearchWordKanji;
-import com.example.jpnstudy.AsyncTasks.SearchWordKnown;
-import com.example.jpnstudy.AsyncTasks.SearchWordMastered;
-import com.example.jpnstudy.AsyncTasks.SearchWordStarred;
-import com.example.jpnstudy.AsyncTasks.SearchWordType;
+import com.example.jpnstudy.AsyncTasks.Delete.DeleteWord;
+import com.example.jpnstudy.AsyncTasks.Delete.DeleteWordAll;
+import com.example.jpnstudy.AsyncTasks.Insert.InsertWord;
+import com.example.jpnstudy.AsyncTasks.Insert.InsertWordList;
+import com.example.jpnstudy.AsyncTasks.Search.SearchWordEnglish;
+import com.example.jpnstudy.AsyncTasks.Search.SearchWordHiragana;
+import com.example.jpnstudy.AsyncTasks.Search.SearchWordKanji;
+import com.example.jpnstudy.AsyncTasks.Search.SearchWordKnown;
+import com.example.jpnstudy.AsyncTasks.Search.SearchWordMastered;
+import com.example.jpnstudy.AsyncTasks.Search.SearchWordStarred;
+import com.example.jpnstudy.AsyncTasks.Search.SearchWordType;
 import com.example.jpnstudy.Entities.Word;
 
 import java.util.ArrayList;

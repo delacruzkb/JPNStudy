@@ -1,4 +1,4 @@
-package com.example.jpnstudy.AsyncTasks;
+package com.example.jpnstudy.AsyncTasks.Delete;
 
 import android.os.AsyncTask;
 
