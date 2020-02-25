@@ -7,7 +7,7 @@ import com.example.jpnstudy.Entities.Grammar;
 
 import java.util.ArrayList;
 
-public class SearchWordKnown extends AsyncTask<Void,Void, ArrayList<Grammar>> {
+public class SearchGrammarKnown extends AsyncTask<Void,Void, ArrayList<Grammar>> {
     private FlashCardDatabase fcdb;
     private int isKnown;
     private int gramLimit;
