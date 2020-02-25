@@ -12,11 +12,11 @@ public class SearchGrammarKnown extends AsyncTask<Void,Void, ArrayList<Grammar>>
     private int isKnown;
     private int gramLimit;
 
-    public SearchWordKnown(FlashCardDatabase db, int bool) {
+    public SearchGrammarKnown(FlashCardDatabase db, int bool) {
         fcdb = db;
         isKnown = bool;
     }
-    public SearchWordKnown(FlashCardDatabase db, int bool, int limit) {
+    public SearchGrammarKnown(FlashCardDatabase db, int bool, int limit) {
         fcdb = db;
         isKnown = bool;
         gramLimit = Math.abs(limit);
@@ -31,7 +31,7 @@ public class SearchGrammarKnown extends AsyncTask<Void,Void, ArrayList<Grammar>>
         }
         else
         {
-            rtnval = (ArrayList<Word>)fcdb.flashCardDao().searchKnownGrammarCards(isKnown,wordLimit);
+            rtnval = (ArrayList<Word>)fcdb.flashCardDao().searchKnownGrammarCards(isKnown,gramLimit);
         }
         return rtnval;
 
