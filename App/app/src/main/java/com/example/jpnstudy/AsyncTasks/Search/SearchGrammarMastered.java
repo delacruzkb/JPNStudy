@@ -9,14 +9,14 @@ import java.util.ArrayList;
 
 public class SearchGrammarMastered extends AsyncTask<Void,Void, ArrayList<Grammar>> {
     private FlashCardDatabase fcdb;
-    private int isKnown;
+    private int isMastered;
     private int gramLimit;
 
-    public SearchWordKnown(FlashCardDatabase db, int bool) {
+    public SearcGrammarMastered(FlashCardDatabase db, int bool) {
         fcdb = db;
         isMastered = bool;
     }
-    public SearchWordKnown(FlashCardDatabase db, int bool, int limit) {
+    public SearchGrammarMastered(FlashCardDatabase db, int bool, int limit) {
         fcdb = db;
         isMastered = bool;
         gramLimit = Math.abs(limit);
@@ -31,7 +31,7 @@ public class SearchGrammarMastered extends AsyncTask<Void,Void, ArrayList<Gramma
         }
         else
         {
-            rtnval = (ArrayList<Word>)fcdb.flashCardDao().searchMasteredGrammarCards(isMastered,wordLimit);
+            rtnval = (ArrayList<Word>)fcdb.flashCardDao().searchMasteredGrammarCards(isMastered,gramLimit);
         }
         return rtnval;
 
