@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey;
 @Fts4
 @Entity
 public class Grammar extends FlashCard{
-
+    //TODO: implement
     @Ignore
     @PrimaryKey
     @ColumnInfo(name = "rowid")
