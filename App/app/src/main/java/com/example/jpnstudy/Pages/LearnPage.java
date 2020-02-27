@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.jpnstudy.R;
 
-public class LessonPage extends AppCompatActivity {
+public class LearnPage extends AppCompatActivity {
     //TODO: make lesson page, pull X unknown cards from the database
     //TODO: App Bar, hide settings there, also have options for star and mastered
     @Override

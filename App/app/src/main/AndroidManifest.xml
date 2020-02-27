@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Dialogs.LessonMenuDialog"></activity>
+        <activity android:name=".Pages.FlashCardMenu"></activity>
+        <activity android:name=".Pages.FlashCardPage" />
+        <activity android:name=".Dialogs.LessonMenuDialog" />
         <activity
             android:name=".Pages.HomePage"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -20,14 +22,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Pages.LessonPage"
+            android:name=".Pages.LearnPage"
             android:parentActivityName=".Pages.HomePage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Pages.HomePage" />
         </activity>
         <activity
-            android:name=".Pages.ChallengePage"
+            android:name=".Pages.OrdealPage"
             android:parentActivityName=".Pages.HomePage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

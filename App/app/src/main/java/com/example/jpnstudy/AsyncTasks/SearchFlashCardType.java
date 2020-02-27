@@ -7,17 +7,15 @@ import com.example.jpnstudy.Entities.FlashCard;
 
 import java.util.ArrayList;
 
-public class SearchFlashCardType extends AsyncTask<Void,Void, ArrayList<FlashCard>> {
+public class SearchFlashCardType extends AsyncTask<String,Void, ArrayList<FlashCard>> {
     private FlashCardDatabase fcdb;
-    private String searchKey;
-    public SearchFlashCardType(FlashCardDatabase db, String search)
+    public SearchFlashCardType(FlashCardDatabase db)
     {
         fcdb=db;
-        searchKey = search;
     }
 
     @Override
-    protected ArrayList<FlashCard> doInBackground(Void... voids) {
-        return (ArrayList)fcdb.flashCardDao().searchType(searchKey);
+    protected ArrayList<FlashCard> doInBackground(String... strings) {
+        return (ArrayList)fcdb.flashCardDao().searchType(strings[0]);
     }
 }

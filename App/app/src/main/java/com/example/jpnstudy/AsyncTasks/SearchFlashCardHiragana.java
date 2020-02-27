@@ -7,17 +7,15 @@ import com.example.jpnstudy.Entities.FlashCard;
 
 import java.util.ArrayList;
 
-public class SearchFlashCardHiragana extends AsyncTask<Void,Void, ArrayList<FlashCard>> {
+public class SearchFlashCardHiragana extends AsyncTask<String,Void, ArrayList<FlashCard>> {
     private FlashCardDatabase fcdb;
-    private String searchKey;
-    public SearchFlashCardHiragana(FlashCardDatabase db, String search)
+    public SearchFlashCardHiragana(FlashCardDatabase db)
     {
         fcdb=db;
-        searchKey = search;
     }
 
     @Override
-    protected ArrayList<FlashCard> doInBackground(Void... voids) {
-        return (ArrayList)fcdb.flashCardDao().searchHiragana(searchKey);
+    protected ArrayList<FlashCard> doInBackground(String... strings) {
+        return (ArrayList)fcdb.flashCardDao().searchHiragana(strings[0]);
     }
 }

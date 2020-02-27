@@ -6,6 +6,8 @@ import androidx.room.Fts4;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+
+
 @Fts4
 @Entity
 public class FlashCard {

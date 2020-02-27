@@ -1,54 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pages.HomePage">
-
-    <Button
-        android:id="@+id/home_lesson_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:onClick="lesson"
-        android:text="Lesson"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <Button
-        android:id="@+id/home_challenge_button"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="48dp"
-        android:onClick="challenge"
-        android:text="Challenge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_lesson_button" />
-
-    <Button
-        android:id="@+id/home_settings_button"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        android:onClick="settings"
-        android:text="Settings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_challenge_button" />
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".Pages.HomePage" >
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Insert Logo Here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Insert Logo here" />
+
+    <Button
+        android:id="@+id/home_learn_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="flashCard"
+        android:text="Learn" />
+
+    <Button
+        android:id="@+id/home_hone_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="flashCard"
+        android:text="Hone" />
+
+    <Button
+        android:id="@+id/home_ordeal_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="ordeal"
+        android:text="Ordeal" />
+
+    <Button
+        android:id="@+id/home_records_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="records"
+        android:text="Records" />
+
+    <Button
+        android:id="@+id/home_settings_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="settings"
+        android:text="Settings" />
+</LinearLayout>

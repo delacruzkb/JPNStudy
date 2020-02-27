@@ -16,10 +16,24 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
     }
     //TODO: navigation for the page & material design
-    public void lesson(View view){
+    public void flashCard(View view){
+        Intent intent = new Intent(this,FlashCardMenu.class);
+        int mode=0;
+        if( view.getId() == R.id.home_hone_button){
+            mode =1;
+        }
+        intent.putExtra("mode",mode);
+        startActivity(intent);
+    }
+    public void hone(View view){
+        Intent intent = new Intent(this,FlashCardMenu.class);
+        intent.putExtra("mode","hone");
+        startActivity(intent);
+    }
+    public void ordeal(View view){
 
     }
-    public void challenge(View view){
+    public void records(View view){
 
     }
     public void settings(View view){

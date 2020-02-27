@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Pages.FlashCardMenu">
+
+    <TextView
+        android:id="@+id/flash_card_menu_amount_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amount" />
+
+    <EditText
+        android:id="@+id/flash_card_menu_amount_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/flash_card_properties_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Properties" />
+
+    <Spinner
+        android:id="@+id/flash_card_properties_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/flashCardPairings" />
+
+    <Button
+        android:id="@+id/flash_card_menu_continue_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="submit"
+        android:text="Continue" />
+</LinearLayout>

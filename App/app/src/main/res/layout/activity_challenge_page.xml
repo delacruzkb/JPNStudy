@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Pages.ChallengePage">
+    tools:context=".Pages.OrdealPage">
 
     <TextView
         android:id="@+id/challenge_test1"

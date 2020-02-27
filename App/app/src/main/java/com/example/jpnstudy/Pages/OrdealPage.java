@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.example.jpnstudy.R;
 
-public class ChallengePage extends AppCompatActivity {
+public class OrdealPage extends AppCompatActivity {
     //TODO: pull 10 known cards
     @Override
     protected void onCreate(Bundle savedInstanceState) {
