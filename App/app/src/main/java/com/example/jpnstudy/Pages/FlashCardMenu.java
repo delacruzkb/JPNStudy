@@ -8,11 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.jpnstudy.Database.FlashCardDatabaseReader;
 import com.example.jpnstudy.Entities.FlashCard;
 import com.example.jpnstudy.R;
-
-import java.util.ArrayList;
 
 public class FlashCardMenu extends AppCompatActivity {
     int known;
@@ -30,12 +27,12 @@ public class FlashCardMenu extends AppCompatActivity {
         int amount = Integer.parseInt(amountEdit.getText().toString());
         String properties = propertiesSpinner.getSelectedItem().toString();
 
-        FlashCardDatabaseReader db = new FlashCardDatabaseReader(getApplicationContext());
 
         Intent intent = new Intent(this, FlashCard.class);
-        ArrayList<FlashCard> flashCards = db.searchFlashCardKnown(known,amount);
+
         intent.putExtra("properties",properties);
-        intent.putExtra("cards",flashCards);
+        intent.putExtra("amount",amount);
+        intent.putExtra("mode",known);
         
         startActivity(intent);
     }

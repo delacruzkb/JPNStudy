@@ -4,7 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".Pages.FlashCardPage">
 
+    <TextView
+        android:id="@+id/flash_card_mode_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:editable="false"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/flash_card_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:editable="false"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/flash_card_flip_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="flipCard"
+        android:text="flip" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/flash_card_previous_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="prevCard"
+            android:text="prev" />
+
+        <TextView
+            android:id="@+id/flash_card_counter_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:editable="false"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/flash_card_next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="nextCard"
+            android:text="next" />
+    </LinearLayout>
 </LinearLayout>

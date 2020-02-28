@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">JPNStudy</string>
     <string-array name="flashCardPairings">
-        <item>English front, Japanses back</item>
-        <item>English front, Kanji back</item>
-        <item>Japanese front, English back</item>
-        <item>Japanese front, Kanji back</item>
-        <item>Kanji front, English back</item>
-        <item>Kanji front, Japanese back</item>
+        <item>English,Hiragana</item>
+        <item>English,Kanji</item>
+        <item>Hiragana,English</item>
+        <item>Hiragana,Kanji</item>
+        <item>Kanji,English</item>
+        <item>Kanji,Hiragana</item>
     </string-array>
     <string-array name="challengeLevels">
         <item>(1) Multiple Choice</item>

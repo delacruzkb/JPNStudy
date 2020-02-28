@@ -8,7 +8,6 @@ import android.view.View;
 
 
 import com.example.jpnstudy.R;
-//TODO: stylize home page
 public class HomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

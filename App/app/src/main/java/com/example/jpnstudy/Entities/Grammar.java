@@ -20,8 +20,7 @@ public class Grammar extends FlashCard{
 
     @ColumnInfo(name = "grammar_definition")
     String definition;
-    
-    //TODO: correct into phrases, change DAOs and methods
+
     @ColumnInfo(name= "grammar_example")
     String example;
 
