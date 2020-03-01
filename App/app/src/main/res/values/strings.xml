@@ -15,4 +15,6 @@
         <item>Mixed</item>
         <item>Weighted</item>
     </string-array>
+    <string name="action_starred">Star</string>
+    <string name="action_mastered">Mastered</string>
 </resources>

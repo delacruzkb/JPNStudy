@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,7 +17,8 @@ import java.util.ArrayList;
 
 public class FlashCardPage extends AppCompatActivity {
     ArrayList<FlashCard> flashCards;
-    int currentCard;
+    int currentCardCount;
+    FlashCard currentCard;
     TextView cardCounterLabel;
     EditText card;
 
@@ -25,6 +27,9 @@ public class FlashCardPage extends AppCompatActivity {
     boolean isFront;
     boolean isHone;
     int amount;
+
+    MenuItem starIcon;
+    MenuItem masterIcon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,87 +46,147 @@ public class FlashCardPage extends AppCompatActivity {
             flashCards.add(temp);
         }
         //loadCardsFromDatabase();
-        loadCard(currentCard);
+        loadCard(currentCardCount);
     }
 
 
 
     public void nextCard(View view) {
-        if(currentCard < flashCards.size()-1)
+        if(currentCardCount < flashCards.size()-1)
         {
-            currentCard++;
-            loadCard(currentCard);
+            currentCardCount++;
+            loadCard(currentCardCount);
         }
     }
 
     public void prevCard(View view){
-        if(currentCard > 0)
+        if(currentCardCount > 0)
         {
-            currentCard += -1;
-            loadCard(currentCard);
+            currentCardCount += -1;
+            loadCard(currentCardCount);
 
         }
     }
 
     private void loadCard(int cardNumber) {
         isFront=true;
-        cardCounterLabel.setText((currentCard +1) + "/" + (flashCards.size()));
-        FlashCard currCard = flashCards.get(cardNumber);
+        cardCounterLabel.setText((currentCardCount +1) + "/" + (flashCards.size()));
+        currentCard = flashCards.get(cardNumber);
         if(sideFrontProperties.equalsIgnoreCase("English"))
         {
-            card.setText(currCard.getEnglish());
+            card.setText(currentCard.getEnglish());
         }
         else if(sideFrontProperties.equalsIgnoreCase("Hiragana"))
         {
-            card.setText(currCard.getHiragana());
+            card.setText(currentCard.getHiragana());
         }
         else if(sideFrontProperties.equalsIgnoreCase("Kanji"))
         {
-            card.setText(currCard.getKanji());
+            card.setText(currentCard.getKanji());
         }
+
+        if( currentCard.isMastered())
+        {
+            starIcon.setIcon(R.drawable.flash_card_mastered_icon);
+        }
+        else
+        {
+            starIcon.setIcon(R.drawable.flash_card_unmastered_icon);
+        }
+
+        if( currentCard.isStarred())
+        {
+            starIcon.setIcon(R.drawable.flash_card_starred_icon);
+        }
+        else
+        {
+            starIcon.setIcon(R.drawable.flash_card_unstarred_icon);
+        }
+
+
+
     }
 
     public void flipCard(View view){
-        FlashCard currCard = flashCards.get(currentCard);
-        if(!isHone && !currCard.isKnown());
+        if(!isHone && !currentCard.isKnown());
         {
-            currCard.setKnown(true);
+            currentCard.setKnown(true);
+            //TODO: Update DAO known
         }
         if(!isFront)
         {
             if(sideFrontProperties.equalsIgnoreCase("English"))
             {
-                card.setText(currCard.getEnglish());
+                card.setText(currentCard.getEnglish());
             }
             else if(sideFrontProperties.equalsIgnoreCase("Hiragana"))
             {
-                card.setText(currCard.getHiragana());
+                card.setText(currentCard.getHiragana());
             }
             else if(sideFrontProperties.equalsIgnoreCase("Kanji"))
             {
-                card.setText(currCard.getKanji());
+                card.setText(currentCard.getKanji());
             }
         }
         else
         {
             if(sideBackProperties.equalsIgnoreCase("English"))
             {
-                card.setText(currCard.getEnglish());
+                card.setText(currentCard.getEnglish());
             }
             else if(sideBackProperties.equalsIgnoreCase("Hiragana"))
             {
-                card.setText(currCard.getHiragana());
+                card.setText(currentCard.getHiragana());
             }
             else if(sideBackProperties.equalsIgnoreCase("Kanji"))
             {
-                card.setText(currCard.getKanji());
+                card.setText(currentCard.getKanji());
             }
         }
         isFront = !isFront;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_star:
+                starCard(currentCard, !currentCard.isStarred());
+                return true;
+
+            case R.id.action_master:
+                masterCard(currentCard, !currentCard.isMastered());
+                return true;
+
+            default:
+                //don't know what happened
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void masterCard(FlashCard masterCard, boolean isMaster) {
+        if(isMaster) {
+            masterIcon.setIcon(R.drawable.flash_card_mastered_icon);
+        }
+        else {
+            masterIcon.setIcon(R.drawable.flash_card_unmastered_icon);
+        }
+        masterCard.setMastered(isMaster);
+        //TODO: Update DAO master
+    }
+
+    private void starCard(FlashCard starCard, boolean isStar){
+        if(isStar) {
+            starIcon.setIcon(R.drawable.flash_card_starred_icon);
+        }
+        else{
+            starIcon.setIcon(R.drawable.flash_card_unstarred_icon);
+        }
+        starCard.setStarred(isStar);
+        //TODO: Update DAO star
+    }
+
     private void initialSetup() {
-        currentCard=0;
+        currentCardCount=0;
 
         //Get data from Menu
         Intent intent = getIntent();
@@ -144,11 +209,15 @@ public class FlashCardPage extends AppCompatActivity {
             setTitle("LEARN!");
         }
 
+        starIcon = findViewById(R.id.action_star);
+        masterIcon = findViewById(R.id.action_master);
+
     }
     private void loadCardsFromDatabase() {
         FlashCardDatabaseReader db = new FlashCardDatabaseReader(getApplicationContext());
         flashCards = db.searchFlashCardKnown(isHone,amount);
     }
+
     //TODO: on back press, prompt
     //TODO: again, but new
 }
