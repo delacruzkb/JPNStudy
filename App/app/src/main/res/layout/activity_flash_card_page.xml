@@ -9,7 +9,7 @@
     tools:context=".Pages.FlashCardPage">
 
     <TextView
-        android:id="@+id/flash_card_mode_label"
+        android:id="@+id/flash_card_menu_mode_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:editable="false"
@@ -19,6 +19,8 @@
         android:id="@+id/flash_card_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="false"
+        android:contextClickable="false"
         android:editable="false"
         android:ems="10"
         android:gravity="start|top"

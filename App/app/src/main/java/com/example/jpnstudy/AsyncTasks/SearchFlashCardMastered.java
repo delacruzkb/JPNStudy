@@ -9,14 +9,14 @@ import java.util.ArrayList;
 
 public class SearchFlashCardMastered extends AsyncTask<Void,Void, ArrayList<FlashCard>> {
     private FlashCardDatabase fcdb;
-    private int isMastered;
+    private boolean isMastered;
     private int cardLimit;
 
-    public SearchFlashCardMastered(FlashCardDatabase db, int bool) {
+    public SearchFlashCardMastered(FlashCardDatabase db, boolean bool) {
         fcdb = db;
         isMastered = bool;
     }
-    public SearchFlashCardMastered(FlashCardDatabase db, int bool, int limit) {
+    public SearchFlashCardMastered(FlashCardDatabase db, boolean bool, int limit) {
         fcdb = db;
         isMastered = bool;
         cardLimit = Math.abs(limit);

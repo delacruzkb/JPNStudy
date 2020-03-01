@@ -17,11 +17,8 @@ public class HomePage extends AppCompatActivity {
     //TODO: navigation for the page & material design
     public void flashCard(View view){
         Intent intent = new Intent(this,FlashCardMenu.class);
-        int mode=0;
-        if( view.getId() == R.id.home_hone_button){
-            mode =1;
-        }
-        intent.putExtra("mode",mode);
+        boolean isHone= view.getId() == R.id.home_hone_button;
+        intent.putExtra("isHone",isHone);
         startActivity(intent);
     }
     public void ordeal(View view){

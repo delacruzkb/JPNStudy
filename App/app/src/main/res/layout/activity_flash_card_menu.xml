@@ -8,6 +8,12 @@
     tools:context=".Pages.FlashCardMenu">
 
     <TextView
+        android:id="@+id/flash_card_menu_mode_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
         android:id="@+id/flash_card_menu_amount_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

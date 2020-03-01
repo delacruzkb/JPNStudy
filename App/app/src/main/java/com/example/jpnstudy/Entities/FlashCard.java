@@ -41,6 +41,18 @@ public class FlashCard {
     @ColumnInfo(name = "card_type")
     String type;
 
+    public FlashCard()
+    {
+        isStarred= false;
+        isMastered=false;
+        isKnown=false;
+        hiragana="No Hiragana";
+        english="No English";
+        kanji="No Kanji";
+        type="other";
+        rightCounter=0;
+    }
+
     public int getId() {
         return id;
     }

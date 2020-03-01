@@ -99,7 +99,7 @@ public class FlashCardDatabaseReader {
         return flashCards;
     }
 
-    public ArrayList<FlashCard> searchFlashCardKnown(int input){
+    public ArrayList<FlashCard> searchFlashCardKnown(boolean input){
         SearchFlashCardKnown search = new SearchFlashCardKnown(db, input);
         ArrayList<FlashCard> flashCards=new ArrayList<>();
         try
@@ -114,7 +114,7 @@ public class FlashCardDatabaseReader {
         return flashCards;
     }
 
-    public ArrayList<FlashCard> searchFlashCardKnown(int input, int limit) {
+    public ArrayList<FlashCard> searchFlashCardKnown(boolean input, int limit) {
         SearchFlashCardKnown search = new SearchFlashCardKnown(db, input ,limit);
         ArrayList<FlashCard> flashCards=new ArrayList<>();
         try
@@ -129,7 +129,7 @@ public class FlashCardDatabaseReader {
         return flashCards;
     }
 
-    public ArrayList<FlashCard> searchFlashCardMastered(int input){
+    public ArrayList<FlashCard> searchFlashCardMastered(boolean input){
         SearchFlashCardMastered search = new SearchFlashCardMastered(db, input);
         ArrayList<FlashCard> flashCards=new ArrayList<>();
         try
@@ -144,7 +144,7 @@ public class FlashCardDatabaseReader {
         return flashCards;
     }
 
-    public ArrayList<FlashCard> searchFlashCardMastered(int input, int limit) {
+    public ArrayList<FlashCard> searchFlashCardMastered(boolean input, int limit) {
         SearchFlashCardMastered search = new SearchFlashCardMastered(db, input ,limit);
         ArrayList<FlashCard> flashCards=new ArrayList<>();
         try
@@ -159,7 +159,7 @@ public class FlashCardDatabaseReader {
         return flashCards;
     }
 
-    public ArrayList<FlashCard> searchFlashCardStarred(int input){
+    public ArrayList<FlashCard> searchFlashCardStarred(boolean input){
         SearchFlashCardStarred search = new SearchFlashCardStarred(db, input);
         ArrayList<FlashCard> flashCards=new ArrayList<>();
         try
@@ -174,7 +174,7 @@ public class FlashCardDatabaseReader {
         return flashCards;
     }
 
-    public ArrayList<FlashCard> searchFlashCardStarred(int input, int limit) {
+    public ArrayList<FlashCard> searchFlashCardStarred(boolean input, int limit) {
         SearchFlashCardStarred search = new SearchFlashCardStarred(db, input ,limit);
         ArrayList<FlashCard> flashCards=new ArrayList<>();
         try
