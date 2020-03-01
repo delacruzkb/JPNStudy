@@ -36,28 +36,28 @@ public interface FlashCardDao {
 
     @Query("select * from flashcard " +
             "where card_mastered = (:mastered)")
-    List<FlashCard> searchMastered(int mastered);
+    List<FlashCard> searchMastered(boolean mastered);
 
     @Query("select * from flashcard " +
             "where card_mastered = (:mastered) " +
             "LIMIT (:cardLimit)")
-    List<FlashCard> searchMastered(int mastered, int cardLimit);
+    List<FlashCard> searchMastered(boolean mastered, int cardLimit);
 
 
     @Query("select * from flashcard " +
             "where card_starred = (:starred) ")
-    List<FlashCard> searchStarred(int starred);
+    List<FlashCard> searchStarred(boolean starred);
     @Query("select * from flashcard " +
             "where card_starred = (:starred) " +
             "LIMIT (:cardLimit)")
-    List<FlashCard> searchStarred(int starred, int cardLimit);
+    List<FlashCard> searchStarred(boolean starred, int cardLimit);
 
     @Query("select * from flashcard " +
             "where card_known = (:known) ")
-    List<FlashCard> searchKnown(int known);
+    List<FlashCard> searchKnown(boolean known);
     @Query("select * from flashcard " +
             "where card_known = (:known) " +
             "LIMIT (:cardLimit)")
-    List<FlashCard> searchKnown(int known, int cardLimit);
+    List<FlashCard> searchKnown(boolean known, int cardLimit);
 
 }
