@@ -23,6 +23,7 @@
         android:contextClickable="false"
         android:editable="false"
         android:ems="10"
+        android:focusable="false"
         android:gravity="start|top"
         android:inputType="textMultiLine" />
 

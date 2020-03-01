@@ -136,6 +136,14 @@ public class FlashCardPage extends AppCompatActivity {
         modeLabel.setText("Front : " + sideFrontProperties + " / Back : " + sideBackProperties);
         card = findViewById(R.id.flash_card_text);
         cardCounterLabel = findViewById(R.id.flash_card_counter_label);
+        if (isHone)
+        {
+            setTitle("HONE!");
+        }
+        else{
+            setTitle("LEARN!");
+        }
+
     }
     private void loadCardsFromDatabase() {
         FlashCardDatabaseReader db = new FlashCardDatabaseReader(getApplicationContext());
