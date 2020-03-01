@@ -18,10 +18,10 @@ public class FlashCard {
     public int id;
 
     @ColumnInfo(name= "card_starred")
-    boolean isStarred;
+    int isStarred;
 
     @ColumnInfo(name= "card_known")
-    boolean isKnown;
+    int isKnown;
 
     @ColumnInfo(name= "card_mastered")
     int isMastered;
@@ -49,27 +49,27 @@ public class FlashCard {
         this.id = id;
     }
 
-    public boolean isStarred() {
+    public int isStarred() {
         return isStarred;
     }
 
-    public void setStarred(boolean starred) {
+    public void setStarred(int starred) {
         isStarred = starred;
     }
 
-    public boolean isKnown() {
+    public int isKnown() {
         return isKnown;
     }
 
-    public void setKnown(boolean known) {
+    public void setKnown(int known) {
         isKnown = known;
     }
 
-    public boolean isMastered() {
+    public int isMastered() {
         return isMastered;
     }
 
-    public void setMastered(boolean mastered) {
+    public void setMastered(int mastered) {
         isMastered = mastered;
     }
 
