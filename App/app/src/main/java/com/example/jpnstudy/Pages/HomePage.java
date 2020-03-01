@@ -24,11 +24,6 @@ public class HomePage extends AppCompatActivity {
         intent.putExtra("mode",mode);
         startActivity(intent);
     }
-    public void hone(View view){
-        Intent intent = new Intent(this,FlashCardMenu.class);
-        intent.putExtra("mode","hone");
-        startActivity(intent);
-    }
     public void ordeal(View view){
 
     }

@@ -24,7 +24,7 @@ public class FlashCard {
     boolean isKnown;
 
     @ColumnInfo(name= "card_mastered")
-    boolean isMastered;
+    int isMastered;
 
     @ColumnInfo(name= "card_right_counter")
     int rightCounter;

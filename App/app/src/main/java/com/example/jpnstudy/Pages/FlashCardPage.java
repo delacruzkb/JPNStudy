@@ -22,18 +22,19 @@ public class FlashCardPage extends AppCompatActivity {
     String sideFrontProperties;
     String sideBackProperties;
     boolean isFront;
+    int mode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card_page);
         Intent intent = getIntent();
         int amount = intent.getIntExtra("amount",1);
-        int known = intent.getIntExtra("mode",1);
+        mode = intent.getIntExtra("mode",1);
         String[] properties = intent.getStringExtra("properties").split(",");
         sideFrontProperties = properties[0];
         sideBackProperties = properties[1];
         FlashCardDatabaseReader db = new FlashCardDatabaseReader(getApplicationContext());
-        flashCards = db.searchFlashCardKnown(known,amount);
+        flashCards = db.searchFlashCardKnown(mode,amount);
 
         currentCard=0;
         TextView modeLabel = findViewById(R.id.flash_card_mode_label);
@@ -78,6 +79,10 @@ public class FlashCardPage extends AppCompatActivity {
 
     public void flipCard(View view){
         FlashCard currCard = flashCards.get(currentCard);
+        if(mode==0 && currCard.isKnown()==0;)
+        {
+            currCard.setKnown(true);
+        }
         if(isFront)
         {
             if(sideFrontProperties.equalsIgnoreCase("English"))
