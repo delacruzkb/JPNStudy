@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_star"
-        android:icon="@drawable/flash_card_unstarred_icon"
+        android:icon="@drawable/ic_un_starred"
         android:title="@string/action_starred"
         app:showAsAction="always"/>
     <item
         android:id="@+id/action_master"
-        android:icon="@drawable/flash_card_unmastered_icon"
+        android:icon="@drawable/ic_un_mastered"
         android:title="@string/action_mastered"
         app:showAsAction= "always"/>
 

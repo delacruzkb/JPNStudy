@@ -39,30 +39,62 @@ public class FlashCardPage extends AppCompatActivity {
 
         initialSetup();
         flashCards = new ArrayList<>();
-        for( int i = 0; i<amount;i++)
-        {
+        for( int i = 0; i<amount;i++) {
             FlashCard temp = new FlashCard();
-            temp.setEnglish("English " + (i+1));
-            temp.setKanji("Kanji " + (i+1));
-            temp.setHiragana("Hiragana " + (i+1));
+            temp.setEnglish("English " + (i + 1));
+            temp.setKanji("Kanji " + (i + 1));
+            temp.setHiragana("Hiragana " + (i + 1));
+            temp.setStarred(true);
+            temp.setMastered(true);
             flashCards.add(temp);
         }
         //loadCardsFromDatabase();
-        //loadCard(currentCardCount);
+
     }
-    //TODO: menu item implementation
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    protected void onResume() {
+        super.onStart();
+        loadCard(currentCardCount);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.app_bar_menu, menu);
+        inflater.inflate(R.menu.app_bar_menu,menu);
+        starIcon=menu.getItem(0);
+        masterIcon=menu.getItem(1);
+        if(currentCard.isStarred())
+        {
+            starIcon.setIcon(R.drawable.ic_starred);
+        }
+        if(currentCard.isMastered())
+        {
+            masterIcon.setIcon(R.drawable.ic_mastered);
+        }
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_master:
+                toggleMaster(item);
+                return true;
+            case R.id.action_star:
+                toggleStar(item);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
 
     public void nextCard(View view) {
         if(currentCardCount < flashCards.size()-1)
         {
-            currentCardCount++;
+            currentCardCount = currentCardCount +1;
             loadCard(currentCardCount);
         }
     }
@@ -70,49 +102,10 @@ public class FlashCardPage extends AppCompatActivity {
     public void prevCard(View view){
         if(currentCardCount > 0)
         {
-            currentCardCount += -1;
+            currentCardCount = currentCardCount -1;
             loadCard(currentCardCount);
 
         }
-    }
-
-    private void loadCard(int cardNumber) {
-        isFront=true;
-        cardCounterLabel.setText((currentCardCount +1) + "/" + (flashCards.size()));
-        currentCard = flashCards.get(cardNumber);
-        if(sideFrontProperties.equalsIgnoreCase("English"))
-        {
-            card.setText(currentCard.getEnglish());
-        }
-        else if(sideFrontProperties.equalsIgnoreCase("Hiragana"))
-        {
-            card.setText(currentCard.getHiragana());
-        }
-        else if(sideFrontProperties.equalsIgnoreCase("Kanji"))
-        {
-            card.setText(currentCard.getKanji());
-        }
-
-        if( currentCard.isMastered())
-        {
-            starIcon.setIcon(R.drawable.flash_card_mastered_icon);
-        }
-        else
-        {
-            starIcon.setIcon(R.drawable.flash_card_unmastered_icon);
-        }
-
-        if( currentCard.isStarred())
-        {
-            starIcon.setIcon(R.drawable.flash_card_starred_icon);
-        }
-        else
-        {
-            starIcon.setIcon(R.drawable.flash_card_unstarred_icon);
-        }
-
-
-
     }
 
     public void flipCard(View view){
@@ -155,44 +148,64 @@ public class FlashCardPage extends AppCompatActivity {
     }
 
 
+    private void loadCard(int cardNumber) {
+        isFront=true;
+        cardCounterLabel.setText((currentCardCount +1) + "/" + (flashCards.size()));
+        currentCard = flashCards.get(cardNumber);
+        if(sideFrontProperties.equalsIgnoreCase("English"))
+        {
+            card.setText(currentCard.getEnglish());
+        }
+        else if(sideFrontProperties.equalsIgnoreCase("Hiragana"))
+        {
+            card.setText(currentCard.getHiragana());
+        }
+        else if(sideFrontProperties.equalsIgnoreCase("Kanji"))
+        {
+            card.setText(currentCard.getKanji());
+        }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_star:
-                starCard(currentCard, !currentCard.isStarred());
-                return true;
-
-            case R.id.action_master:
-                masterCard(currentCard, !currentCard.isMastered());
-                return true;
-
-            default:
-                //don't know what happened
-                return super.onOptionsItemSelected(item);
+        if (masterIcon != null || starIcon != null)
+        {
+            if( currentCard.isMastered()) {
+                masterIcon.setIcon(R.drawable.ic_mastered);
+            }
+            else{
+                masterIcon.setIcon(R.drawable.ic_un_mastered);
+            }
+            if( currentCard.isStarred()) {
+                starIcon.setIcon(R.drawable.ic_starred);
+            }
+            else{
+                starIcon.setIcon(R.drawable.ic_un_starred);
+            }
         }
     }
 
-    private void masterCard(FlashCard masterCard, boolean isMaster) {
-        if(isMaster) {
-            masterIcon.setIcon(R.drawable.flash_card_mastered_icon);
+    private void toggleStar(MenuItem item) {
+        currentCard.setStarred(!currentCard.isStarred());
+        //TODO: UPDATE DAO star
+        if(currentCard.isStarred())
+        {
+            item.setIcon(R.drawable.ic_starred);
         }
-        else {
-            masterIcon.setIcon(R.drawable.flash_card_unmastered_icon);
+        else
+        {
+            item.setIcon(R.drawable.ic_un_starred);
         }
-        masterCard.setMastered(isMaster);
-        //TODO: Update DAO master
     }
 
-    private void starCard(FlashCard starCard, boolean isStar){
-        if(isStar) {
-            starIcon.setIcon(R.drawable.flash_card_starred_icon);
+    private void toggleMaster(MenuItem item) {
+        currentCard.setMastered(!currentCard.isMastered());
+        //TODO: UPDATE DAO star
+        if(currentCard.isMastered())
+        {
+            item.setIcon(R.drawable.ic_mastered);
         }
-        else{
-            starIcon.setIcon(R.drawable.flash_card_unstarred_icon);
+        else
+        {
+            item.setIcon(R.drawable.ic_un_mastered);
         }
-        starCard.setStarred(isStar);
-        //TODO: Update DAO star
     }
 
     private void initialSetup() {
@@ -218,11 +231,8 @@ public class FlashCardPage extends AppCompatActivity {
         else{
             setTitle("LEARN!");
         }
-
-        starIcon = findViewById(R.id.action_star);
-        masterIcon = findViewById(R.id.action_master);
-
     }
+
     private void loadCardsFromDatabase() {
         FlashCardDatabaseReader db = new FlashCardDatabaseReader(getApplicationContext());
         flashCards = db.searchFlashCardKnown(isHone,amount);
