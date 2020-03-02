@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -46,10 +48,16 @@ public class FlashCardPage extends AppCompatActivity {
             flashCards.add(temp);
         }
         //loadCardsFromDatabase();
-        loadCard(currentCardCount);
+        //loadCard(currentCardCount);
     }
+    //TODO: menu item implementation
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.app_bar_menu, menu);
+        return true;
+    }
 
     public void nextCard(View view) {
         if(currentCardCount < flashCards.size()-1)
@@ -145,6 +153,8 @@ public class FlashCardPage extends AppCompatActivity {
         }
         isFront = !isFront;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
