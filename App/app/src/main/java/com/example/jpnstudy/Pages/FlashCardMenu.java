@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.jpnstudy.R;
 
@@ -31,18 +32,24 @@ public class FlashCardMenu extends AppCompatActivity {
         EditText amountEdit = findViewById(R.id.flash_card_menu_amount_edittext);
         Spinner propertiesSpinner = findViewById(R.id.flash_card_properties_spinner);
 
-        //TODO: dialog if amount is empty
-        //TODO: spinner for amount?
-        int amount = Integer.parseInt(amountEdit.getText().toString());
-        String properties = propertiesSpinner.getSelectedItem().toString();
+        String amountText =amountEdit.getText().toString();
+        if(  amountText.length()<1)
+        {
+            Toast.makeText(this,"Invalid Amount", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            int amount = Integer.parseInt(amountEdit.getText().toString());
+            String properties = propertiesSpinner.getSelectedItem().toString();
 
 
-        Intent intent = new Intent(this, FlashCardPage.class);
+            Intent intent = new Intent(this, FlashCardPage.class);
 
-        intent.putExtra("properties",properties);
-        intent.putExtra("amount",amount);
-        intent.putExtra("mode",isHone);
-        
-        startActivity(intent);
+            intent.putExtra("properties",properties);
+            intent.putExtra("amount",amount);
+            intent.putExtra("mode",isHone);
+
+            startActivity(intent);
+        }
+
     }
 }
