@@ -6,46 +6,53 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".Pages.HomePage" >
+    tools:context=".Pages.HomePage">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Insert Logo here" />
+        android:gravity="center_horizontal"
+        android:text="Insert Logo here"
+        android:textSize="@dimen/header_text_size" />
 
     <Button
         android:id="@+id/home_learn_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="flashCard"
-        android:text="Learn" />
+        android:text="@string/learn_label"
+        android:textSize="@dimen/button_text_size" />
 
     <Button
         android:id="@+id/home_hone_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="flashCard"
-        android:text="Hone" />
+        android:text="@string/hone_label"
+        android:textSize="@dimen/button_text_size" />
 
     <Button
         android:id="@+id/home_ordeal_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="ordeal"
-        android:text="Ordeal" />
+        android:text="@string/ordeal_label"
+        android:textSize="@dimen/button_text_size" />
 
     <Button
         android:id="@+id/home_records_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="records"
-        android:text="Records" />
+        android:text="@string/records_label"
+        android:textSize="@dimen/button_text_size" />
 
     <Button
         android:id="@+id/home_settings_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="settings"
-        android:text="Settings" />
+        android:text="@string/settings_label"
+        android:textSize="@dimen/button_text_size" />
 </LinearLayout>

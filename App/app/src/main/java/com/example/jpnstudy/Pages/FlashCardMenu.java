@@ -13,6 +13,7 @@ import com.example.jpnstudy.R;
 
 public class FlashCardMenu extends AppCompatActivity {
     boolean isHone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,8 @@ public class FlashCardMenu extends AppCompatActivity {
     }
     public void submit(View view){
         EditText amountEdit = findViewById(R.id.flash_card_menu_amount_edittext);
-        Spinner propertiesSpinner = findViewById(R.id.flash_card_properties_spinner);
+
+
 
         String amountText =amountEdit.getText().toString();
         if(  amountText.length()<1)
@@ -39,12 +41,14 @@ public class FlashCardMenu extends AppCompatActivity {
         }
         else{
             int amount = Integer.parseInt(amountEdit.getText().toString());
-            String properties = propertiesSpinner.getSelectedItem().toString();
+            String cardFront="";
+            String cardBack="";
 
 
             Intent intent = new Intent(this, FlashCardPage.class);
 
-            intent.putExtra("properties",properties);
+            intent.putExtra("cardFront",cardFront);
+            intent.putExtra("cardBack",cardBack);
             intent.putExtra("amount",amount);
             intent.putExtra("mode",isHone);
 

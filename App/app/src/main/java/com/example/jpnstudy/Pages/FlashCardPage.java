@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.jpnstudy.Database.FlashCardDatabaseReader;
@@ -22,10 +21,10 @@ public class FlashCardPage extends AppCompatActivity {
     int currentCardCount;
     FlashCard currentCard;
     TextView cardCounterLabel;
-    EditText card;
+    TextView card;
 
-    String sideFrontProperties;
-    String sideBackProperties;
+    String cardFront;
+    String cardBack;
     boolean isFront;
     boolean isHone;
     int amount;
@@ -54,7 +53,7 @@ public class FlashCardPage extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        super.onStart();
+        super.onResume();
         loadCard(currentCardCount);
     }
 
@@ -116,30 +115,30 @@ public class FlashCardPage extends AppCompatActivity {
         }
         if(!isFront)
         {
-            if(sideFrontProperties.equalsIgnoreCase("English"))
+            if(cardFront.equalsIgnoreCase("English"))
             {
                 card.setText(currentCard.getEnglish());
             }
-            else if(sideFrontProperties.equalsIgnoreCase("Hiragana"))
+            else if(cardFront.equalsIgnoreCase("Hiragana"))
             {
                 card.setText(currentCard.getHiragana());
             }
-            else if(sideFrontProperties.equalsIgnoreCase("Kanji"))
+            else if(cardFront.equalsIgnoreCase("Kanji"))
             {
                 card.setText(currentCard.getKanji());
             }
         }
         else
         {
-            if(sideBackProperties.equalsIgnoreCase("English"))
+            if(cardBack.equalsIgnoreCase("English"))
             {
                 card.setText(currentCard.getEnglish());
             }
-            else if(sideBackProperties.equalsIgnoreCase("Hiragana"))
+            else if(cardBack.equalsIgnoreCase("Hiragana"))
             {
                 card.setText(currentCard.getHiragana());
             }
-            else if(sideBackProperties.equalsIgnoreCase("Kanji"))
+            else if(cardBack.equalsIgnoreCase("Kanji"))
             {
                 card.setText(currentCard.getKanji());
             }
@@ -152,15 +151,15 @@ public class FlashCardPage extends AppCompatActivity {
         isFront=true;
         cardCounterLabel.setText((currentCardCount +1) + "/" + (flashCards.size()));
         currentCard = flashCards.get(cardNumber);
-        if(sideFrontProperties.equalsIgnoreCase("English"))
+        if(cardFront.equalsIgnoreCase("English"))
         {
             card.setText(currentCard.getEnglish());
         }
-        else if(sideFrontProperties.equalsIgnoreCase("Hiragana"))
+        else if(cardFront.equalsIgnoreCase("Hiragana"))
         {
             card.setText(currentCard.getHiragana());
         }
-        else if(sideFrontProperties.equalsIgnoreCase("Kanji"))
+        else if(cardFront.equalsIgnoreCase("Kanji"))
         {
             card.setText(currentCard.getKanji());
         }
@@ -215,13 +214,12 @@ public class FlashCardPage extends AppCompatActivity {
         Intent intent = getIntent();
         amount = intent.getIntExtra("amount",1);
         isHone = intent.getBooleanExtra("isHone",false);
-        String[] properties = intent.getStringExtra("properties").split(",");
-        sideFrontProperties = properties[0];
-        sideBackProperties = properties[1];
+        cardFront = intent.getStringExtra("cardFront");
+        cardBack = intent.getStringExtra("cardBack");
 
         //View Setup
         TextView modeLabel = findViewById(R.id.flash_card_menu_mode_label);
-        modeLabel.setText("Front : " + sideFrontProperties + " / Back : " + sideBackProperties);
+        modeLabel.setText("Front : " + cardFront + " / Back : " + cardBack);
         card = findViewById(R.id.flash_card_text);
         cardCounterLabel = findViewById(R.id.flash_card_counter_label);
         if (isHone)

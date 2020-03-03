@@ -17,4 +17,22 @@
     </string-array>
     <string name="action_starred">Star</string>
     <string name="action_mastered">Mastered</string>
+
+    //Home Menu
+    <string name="learn_label">Learn</string>
+    <string name="hone_label">Hone</string>
+    <string name="ordeal_label">Ordeal</string>
+    <string name="records_label">Records</string>
+    <string name="settings_label">Settings</string>
+
+    //Flash Card Menu
+
+    <string name="amount_label">Amount</string>
+    <string name="properties_label">Card Properties( Front,Back )</string>
+    <string name="continue_label">Get Cards</string>
+
+    //Flash Card Page
+    <string name="flip_label">Flip</string>
+    <string name="previous_button">Prev</string>
+    <string name="next_button">Next</string>
 </resources>

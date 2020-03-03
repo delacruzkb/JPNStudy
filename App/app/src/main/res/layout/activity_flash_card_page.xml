@@ -12,31 +12,29 @@
         android:id="@+id/flash_card_menu_mode_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:editable="false"
-        android:text="TextView" />
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/sub_header_text_size" />
 
-    <EditText
+    <TextView
         android:id="@+id/flash_card_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:contextClickable="false"
-        android:editable="false"
-        android:ems="10"
-        android:focusable="false"
-        android:gravity="start|top"
-        android:inputType="textMultiLine" />
+        android:layout_height="179dp"
+        android:ellipsize="none"
+        android:gravity="center_horizontal|center_vertical"
+        android:scrollHorizontally="false"
+        android:textSize="@dimen/flash_card_text_size" />
 
     <Button
         android:id="@+id/flash_card_flip_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="flipCard"
-        android:text="flip" />
+        android:text="@string/flip_label"
+        android:textSize="@dimen/button_text_size" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
@@ -45,15 +43,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="prevCard"
-            android:text="prev" />
+            android:text="@string/previous_button"
+            android:textSize="@dimen/button_text_size" />
 
         <TextView
             android:id="@+id/flash_card_counter_label"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:editable="false"
-            android:text="TextView" />
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="@dimen/sub_header_text_size" />
 
         <Button
             android:id="@+id/flash_card_next_button"
@@ -61,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="nextCard"
-            android:text="next" />
+            android:text="@string/next_button"
+            android:textSize="@dimen/button_text_size" />
     </LinearLayout>
 </LinearLayout>
