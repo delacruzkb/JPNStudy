@@ -28,11 +28,21 @@
     //Flash Card Menu
 
     <string name="amount_label">Amount</string>
-    <string name="properties_label">Card Properties( Front,Back )</string>
+    <string name="properties_front_label">Card Front</string>
+    <string name="properties_back_label">Card Back</string>
+    <string name="hiragana_label">Hiragana</string>
+    <string name="english_label">English</string>
+    <string name="kanji_label">Kanji</string>
     <string name="continue_label">Get Cards</string>
+    <string name="same_card_error">Please choose different card sides</string>
+    <string name="wrong_amount_error">Invalid amount</string>
+    <string name="flash_card_menu_hone_title">Hone your skills</string>
+    <string name="flash_card_menu_learn_title">Learn some cards</string>
 
     //Flash Card Page
     <string name="flip_label">Flip</string>
     <string name="previous_button">Prev</string>
     <string name="next_button">Next</string>
+    <string name="flash_card_hone_title">HONE!</string>
+    <string name="flash_card_learn_title">LEARN!</string>
 </resources>

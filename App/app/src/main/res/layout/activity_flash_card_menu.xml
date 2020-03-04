@@ -11,6 +11,7 @@
         android:id="@+id/flash_card_menu_amount_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
         android:text="@string/amount_label"
         android:textSize="@dimen/sub_header_text_size" />
 
@@ -24,7 +25,8 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
 
         <TableRow
             android:layout_width="match_parent"
@@ -34,13 +36,17 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/properties_front_label"
+                android:textSize="@dimen/sub_header_text_size" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/properties_back_label"
+                android:textSize="@dimen/sub_header_text_size" />
         </TableRow>
 
         <TableRow
@@ -48,49 +54,63 @@
             android:layout_height="match_parent">
 
             <RadioGroup
+                android:id="@+id/flash_card_menu_card_front_radio_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/radioButton6"
+                    android:id="@+id/flash_card_menu_english_front_radio_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:onClick="onCardFrontRadioButtonClick"
+                    android:text="@string/english_label"
+                    android:textSize="@dimen/button_text_size" />
 
                 <RadioButton
-                    android:id="@+id/radioButton5"
+                    android:id="@+id/flash_card_menu_hiragana_front_radio_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:onClick="onCardFrontRadioButtonClick"
+                    android:text="@string/hiragana_label"
+                    android:textSize="@dimen/button_text_size" />
 
                 <RadioButton
-                    android:id="@+id/radioButton4"
+                    android:id="@+id/flash_card_menu_kanji_front_radio_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:onClick="onCardFrontRadioButtonClick"
+                    android:text="@string/kanji_label"
+                    android:textSize="@dimen/button_text_size" />
             </RadioGroup>
 
             <RadioGroup
+                android:id="@+id/flash_card_menu_card_back_radio_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/flash_card_menu_english_back_radio_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:onClick="onCardBackRadioButtonClick"
+                    android:text="@string/english_label"
+                    android:textSize="@dimen/button_text_size" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/flash_card_menu_hiragana_back_radio_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:onClick="onCardBackRadioButtonClick"
+                    android:text="@string/hiragana_label"
+                    android:textSize="@dimen/button_text_size" />
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/flash_card_menu_kanji_back_radio_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:onClick="onCardBackRadioButtonClick"
+                    android:text="@string/kanji_label"
+                    android:textSize="@dimen/button_text_size" />
             </RadioGroup>
         </TableRow>
 

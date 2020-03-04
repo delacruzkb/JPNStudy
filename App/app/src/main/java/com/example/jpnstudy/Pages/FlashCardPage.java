@@ -115,30 +115,30 @@ public class FlashCardPage extends AppCompatActivity {
         }
         if(!isFront)
         {
-            if(cardFront.equalsIgnoreCase("English"))
+            if(cardFront.equalsIgnoreCase(getString(R.string.english_label)))
             {
                 card.setText(currentCard.getEnglish());
             }
-            else if(cardFront.equalsIgnoreCase("Hiragana"))
+            else if(cardFront.equalsIgnoreCase(getString(R.string.hiragana_label)))
             {
                 card.setText(currentCard.getHiragana());
             }
-            else if(cardFront.equalsIgnoreCase("Kanji"))
+            else if(cardFront.equalsIgnoreCase(getString(R.string.kanji_label)))
             {
                 card.setText(currentCard.getKanji());
             }
         }
         else
         {
-            if(cardBack.equalsIgnoreCase("English"))
+            if(cardBack.equalsIgnoreCase(getString(R.string.english_label)))
             {
                 card.setText(currentCard.getEnglish());
             }
-            else if(cardBack.equalsIgnoreCase("Hiragana"))
+            else if(cardBack.equalsIgnoreCase(getString(R.string.hiragana_label)))
             {
                 card.setText(currentCard.getHiragana());
             }
-            else if(cardBack.equalsIgnoreCase("Kanji"))
+            else if(cardBack.equalsIgnoreCase(getString(R.string.kanji_label)))
             {
                 card.setText(currentCard.getKanji());
             }
@@ -151,15 +151,15 @@ public class FlashCardPage extends AppCompatActivity {
         isFront=true;
         cardCounterLabel.setText((currentCardCount +1) + "/" + (flashCards.size()));
         currentCard = flashCards.get(cardNumber);
-        if(cardFront.equalsIgnoreCase("English"))
+        if(cardFront.equalsIgnoreCase(getString(R.string.english_label)))
         {
             card.setText(currentCard.getEnglish());
         }
-        else if(cardFront.equalsIgnoreCase("Hiragana"))
+        else if(cardFront.equalsIgnoreCase(getString(R.string.hiragana_label)))
         {
             card.setText(currentCard.getHiragana());
         }
-        else if(cardFront.equalsIgnoreCase("Kanji"))
+        else if(cardFront.equalsIgnoreCase(getString(R.string.kanji_label)))
         {
             card.setText(currentCard.getKanji());
         }
@@ -224,10 +224,10 @@ public class FlashCardPage extends AppCompatActivity {
         cardCounterLabel = findViewById(R.id.flash_card_counter_label);
         if (isHone)
         {
-            setTitle("HONE!");
+            setTitle(getString(R.string.flash_card_hone_title));
         }
         else{
-            setTitle("LEARN!");
+            setTitle(getString(R.string.flash_card_learn_title));
         }
     }
 
