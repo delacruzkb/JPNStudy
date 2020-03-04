@@ -9,9 +9,9 @@
         <item>Kanji,Hiragana</item>
     </string-array>
     <string-array name="challengeLevels">
-        <item>(1) Multiple Choice</item>
-        <item>(2) Character Choice</item>
-        <item>(3) Key-in</item>
+        <item>Multiple Choice</item>
+        <item>Character Choice</item>
+        <item>Key-in</item>
         <item>Mixed</item>
         <item>Weighted</item>
     </string-array>

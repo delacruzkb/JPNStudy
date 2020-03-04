@@ -26,6 +26,8 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
         android:stretchColumns="*">
 
         <TableRow
@@ -116,11 +118,30 @@
 
     </TableLayout>
 
+    <Spinner
+        android:id="@+id/flash_card_menu_ordeal_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/challengeLevels" />
+
+    <TextView
+        android:id="@+id/flash_card_menu_ordeal_description_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/flash_card_text_area_size"
+        android:ellipsize="none"
+        android:gravity="center_horizontal|center_vertical"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:scrollHorizontally="false"
+        android:textSize="@dimen/flash_card_text_size" />
+
     <Button
         android:id="@+id/flash_card_menu_continue_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="submit"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
         android:text="@string/continue_label"
         android:textSize="@dimen/button_text_size" />
 
