@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.example.jpnstudy.R;
 
 public class FlashCardMenu extends AppCompatActivity {
-    boolean isHone;
+    String mode;
     String cardFront;
     String cardBack;
     @Override
@@ -20,15 +20,20 @@ public class FlashCardMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card_menu);
         Intent intent = getIntent();
-        isHone = intent.getBooleanExtra("isHone",false);
-        if (isHone)
+        mode = intent.getStringExtra("mode");
+        if( mode.equals(getString(R.string.flash_card_learn_title)) 
+           || mode.equals( getString(R.string.flash_card_hone_title)))
         {
-            setTitle(getString(R.string.flash_card_hone_title));
+            menuForFlashCardMode();
         }
-        else{
-            setTitle(R.string.flash_card_learn_title);
+        else if(mode.equals(getString(R.string.flash_card_ordeal_title)))
+        {
+            menuForOrdealMode();
         }
-
+        else
+        {
+            //TODO: error? do something
+        }
     }
     public void submit(View view){
         EditText amountEdit = findViewById(R.id.flash_card_menu_amount_edittext);
@@ -44,6 +49,8 @@ public class FlashCardMenu extends AppCompatActivity {
             Toast.makeText(this,getText(R.string.same_card_error), Toast.LENGTH_SHORT).show();
         }
         else{
+            
+            //TODO: handle different modes
             int amount = Integer.parseInt(amountEdit.getText().toString());
             Intent intent = new Intent(this, FlashCardPage.class);
             intent.putExtra("cardFront",cardFront);
@@ -72,4 +79,13 @@ public class FlashCardMenu extends AppCompatActivity {
             cardBack= radioButton.getText().toString();
         }
     }
+    
+    private void menuForFlashCardMode(){
+        //set up views
+    }
+        
+    private void menuForOrdealMode(){
+        //setup extra view?
+    }
+    
 }
