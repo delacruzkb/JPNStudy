@@ -17,22 +17,20 @@ public class HomePage extends AppCompatActivity {
     //TODO: navigation for the page & material design
     public void flashCard(View view){
         Intent intent = new Intent(this,FlashCardMenu.class);
+        String mode;
         switch (view.getId()) {
             case R.id.home_learn_button:
-                //something
+                mode = getString(R.string.flash_card_learn_title)
                 break;
             case R.id.home_hone_button:
-                //something
+                mode = getString(R.string.flash_card_hone_title)
                 break;
             case R.id.home_ordeal_button:
-                //something
+                mode = getString(R.string.flash_card_ordeal_title)
                 break;
         }
-        intent.putExtra("isHone",isHone);
+        intent.putExtra("mode",mode);
         startActivity(intent);
-    }
-    public void ordeal(View view){
-
     }
     public void records(View view){
 
