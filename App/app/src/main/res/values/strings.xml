@@ -38,6 +38,7 @@
     <string name="wrong_amount_error">Invalid amount</string>
     <string name="flash_card_menu_hone_title">Hone your skills</string>
     <string name="flash_card_menu_learn_title">Learn some cards</string>
+    <string name="flash_card_menu_ordeal_title">Overcome an Ordeal</string>
 
     //Flash Card Page
     <string name="flip_label">Flip</string>
@@ -45,4 +46,5 @@
     <string name="next_button">Next</string>
     <string name="flash_card_hone_title">HONE!</string>
     <string name="flash_card_learn_title">LEARN!</string>
+    <string name="flash_card_ordeal_title">ORDEAL!</string>
 </resources>

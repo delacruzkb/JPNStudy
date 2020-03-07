@@ -21,18 +21,9 @@ public class FlashCardMenu extends AppCompatActivity {
         setContentView(R.layout.activity_flash_card_menu);
         Intent intent = getIntent();
         mode = intent.getStringExtra("mode");
-        if( mode.equals(getString(R.string.flash_card_learn_title)) 
-           || mode.equals( getString(R.string.flash_card_hone_title)))
-        {
-            menuForFlashCardMode();
-        }
-        else if(mode.equals(getString(R.string.flash_card_ordeal_title)))
+        if(mode.equals(getString(R.string.ordeal_label)))
         {
             menuForOrdealMode();
-        }
-        else
-        {
-            //TODO: error? do something
         }
     }
     public void submit(View view){
@@ -56,7 +47,7 @@ public class FlashCardMenu extends AppCompatActivity {
             intent.putExtra("cardFront",cardFront);
             intent.putExtra("cardBack",cardBack);
             intent.putExtra("amount",amount);
-            intent.putExtra("mode",isHone);
+            intent.putExtra("mode",mode);
 
             startActivity(intent);
         }
@@ -79,10 +70,7 @@ public class FlashCardMenu extends AppCompatActivity {
             cardBack= radioButton.getText().toString();
         }
     }
-    
-    private void menuForFlashCardMode(){
-        //set up views
-    }
+
         
     private void menuForOrdealMode(){
         //setup extra view?
