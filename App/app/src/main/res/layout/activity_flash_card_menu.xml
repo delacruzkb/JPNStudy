@@ -118,22 +118,41 @@
 
     </TableLayout>
 
-    <Spinner
-        android:id="@+id/flash_card_menu_ordeal_spinner"
+    <LinearLayout
+        android:id="@+id/flash_card_menu_ordeal_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/challengeLevels" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/flash_card_menu_ordeal_description_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/flash_card_text_area_size"
-        android:ellipsize="none"
-        android:gravity="center_horizontal|center_vertical"
-        android:paddingTop="@dimen/default_padding"
-        android:paddingBottom="@dimen/default_padding"
-        android:scrollHorizontally="false"
-        android:textSize="@dimen/flash_card_text_size" />
+        <TextView
+            android:id="@+id/flash_card_menu_ordeal_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/flash_card_menu_ordeal_label"
+            android:textSize="@dimen/sub_header_text_size" />
+
+        <Spinner
+            android:id="@+id/flash_card_menu_ordeal_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/challengeLevels"
+            android:spinnerMode="dialog" />
+
+        <TextView
+            android:id="@+id/flash_card_menu_ordeal_description_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/flash_card_text_area_size"
+            android:autoSizeTextType="uniform"
+            android:ellipsize="none"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingTop="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            android:paddingBottom="@dimen/default_padding"
+            android:scrollHorizontally="false"
+            android:textSize="@dimen/flash_card_text_size" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/flash_card_menu_continue_button"

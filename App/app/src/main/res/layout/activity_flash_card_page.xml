@@ -19,6 +19,7 @@
         android:id="@+id/flash_card_text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/flash_card_text_area_size"
+        android:autoSizeTextType="uniform"
         android:ellipsize="none"
         android:gravity="center_horizontal|center_vertical"
         android:scrollHorizontally="false"

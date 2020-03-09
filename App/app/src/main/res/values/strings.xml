@@ -1,13 +1,5 @@
 <resources>
     <string name="app_name">JPNStudy</string>
-    <string-array name="flashCardPairings">
-        <item>English,Hiragana</item>
-        <item>English,Kanji</item>
-        <item>Hiragana,English</item>
-        <item>Hiragana,Kanji</item>
-        <item>Kanji,English</item>
-        <item>Kanji,Hiragana</item>
-    </string-array>
     <string-array name="challengeLevels">
         <item>Multiple Choice</item>
         <item>Character Choice</item>
@@ -39,6 +31,13 @@
     <string name="flash_card_menu_hone_title">Hone your skills</string>
     <string name="flash_card_menu_learn_title">Learn some cards</string>
     <string name="flash_card_menu_ordeal_title">Overcome an Ordeal</string>
+    <string name="flash_card_menu_ordeal_label">Ordeal Type</string>
+    <string name="flash_card_menu_ordeal_multiple_choice_description">Choose from 4 possible options</string>
+    <string name="flash_card_menu_ordeal_character_choice_description">Choose from a set of possible characters</string>
+    <string name="flash_card_menu_ordeal_key_in_description">Key in the correct answer</string>
+    <string name="flash_card_menu_ordeal_mixed_description">Random assortment of Multiple Choice, Character Choice, and Key-in</string>
+    <string name="flash_card_menu_ordeal_weighted_description">Assortment of Multiple Choice, Character Choice, and Key-in based on your familiarity of the card</string>
+
 
     //Flash Card Page
     <string name="flip_label">Flip</string>
@@ -47,4 +46,5 @@
     <string name="flash_card_hone_title">HONE!</string>
     <string name="flash_card_learn_title">LEARN!</string>
     <string name="flash_card_ordeal_title">ORDEAL!</string>
+    <string name="ordeal_clear_button">Clear</string>
 </resources>
