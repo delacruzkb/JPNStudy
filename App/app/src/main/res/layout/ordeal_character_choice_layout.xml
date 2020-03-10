@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/ordeal_character_choice_textview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+        android:autoSizeTextType="uniform" />
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -205,13 +211,27 @@
 
         </TableRow>
 
-    </TableLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/ordeal_key_in_layout_clear_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autoSizeTextType="uniform"
-        android:text="@string/ordeal_clear_button" />
+            <Button
+                android:id="@+id/ordeal_character_choice_layout_clear_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+                android:layout_span="3"
+                android:autoSizeTextType="uniform"
+                android:text="@string/clear_button" />
+
+            <Button
+                android:id="@+id/ordeal_character_choice_layout_submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+                android:layout_span="3"
+                android:autoSizeTextType="uniform"
+                android:text="@string/submit_button" />
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>

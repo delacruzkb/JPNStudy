@@ -7,7 +7,7 @@
     <dimen name="body_text_size">14sp</dimen>75
     <dimen name="flash_card_text_size">50sp</dimen>
     <dimen name="default_padding">10dp</dimen>
-    <dimen name="flash_card_text_area_size">200dp</dimen>
+    <dimen name="flash_card_text_area_size">300dp</dimen>
     <dimen name="ordeal_character_button_width">65dp</dimen>
     <dimen name="ordeal_character_button_height">65dp</dimen>
     <dimen name="ordeal_multiple_choice_button_height">75dp</dimen>

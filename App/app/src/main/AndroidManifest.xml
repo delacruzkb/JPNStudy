@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Pages.OrdealMenuPage"></activity>
-        <activity android:name=".Pages.FlashCardMenu" />
-        <activity android:name=".Pages.FlashCardPage" />
+        <activity android:name=".Pages.ModeMenu" />
+        <activity android:name=".Pages.ModePage" />
         <activity
             android:name=".Pages.HomePage"
             android:theme="@style/Theme.AppCompat.NoActionBar">

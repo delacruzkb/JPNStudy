@@ -17,7 +17,7 @@
     <string name="records_label">Records</string>
     <string name="settings_label">Settings</string>
 
-    //Flash Card Menu
+    //Mode Menu
 
     <string name="amount_label">Amount</string>
     <string name="properties_front_label">Card Front</string>
@@ -28,23 +28,24 @@
     <string name="continue_label">Get Cards</string>
     <string name="same_card_error">Please choose different card sides</string>
     <string name="wrong_amount_error">Invalid amount</string>
-    <string name="flash_card_menu_hone_title">Hone your skills</string>
-    <string name="flash_card_menu_learn_title">Learn some cards</string>
-    <string name="flash_card_menu_ordeal_title">Overcome an Ordeal</string>
-    <string name="flash_card_menu_ordeal_label">Ordeal Type</string>
-    <string name="flash_card_menu_ordeal_multiple_choice_description">Choose from 4 possible options</string>
-    <string name="flash_card_menu_ordeal_character_choice_description">Choose from a set of possible characters</string>
-    <string name="flash_card_menu_ordeal_key_in_description">Key in the correct answer</string>
-    <string name="flash_card_menu_ordeal_mixed_description">Random assortment of Multiple Choice, Character Choice, and Key-in</string>
-    <string name="flash_card_menu_ordeal_weighted_description">Assortment of Multiple Choice, Character Choice, and Key-in based on your familiarity of the card</string>
+    <string name="mode_menu_hone_title">Hone your skills</string>
+    <string name="mode_menu_learn_title">Learn some cards</string>
+    <string name="mode_menu_ordeal_title">Overcome an Ordeal</string>
+    <string name="mode_menu_ordeal_label">Ordeal Type</string>
+    <string name="mode_menu_ordeal_multiple_choice_description">Choose from 4 possible options</string>
+    <string name="mode_menu_ordeal_character_choice_description">Choose from a set of possible characters</string>
+    <string name="mode_menu_ordeal_key_in_description">Key in the correct answer</string>
+    <string name="mode_menu_ordeal_mixed_description">Random assortment of Multiple Choice, Character Choice, and Key-in</string>
+    <string name="mode_menu_ordeal_weighted_description">Assortment of Multiple Choice, Character Choice, and Key-in based on your familiarity of the card</string>
 
 
-    //Flash Card Page
-    <string name="flip_label">Flip</string>
+    //Mode Page
+    <string name="flip_button">Flip</string>
     <string name="previous_button">Prev</string>
     <string name="next_button">Next</string>
-    <string name="flash_card_hone_title">HONE!</string>
-    <string name="flash_card_learn_title">LEARN!</string>
-    <string name="flash_card_ordeal_title">ORDEAL!</string>
-    <string name="ordeal_clear_button">Clear</string>
+    <string name="mode_hone_title">HONE!</string>
+    <string name="mode_learn_title">LEARN!</string>
+    <string name="mode_ordeal_title">ORDEAL!</string>
+    <string name="clear_button">Clear</string>
+    <string name="submit_button">Submit</string>
 </resources>

@@ -16,7 +16,7 @@ import com.example.jpnstudy.R;
 
 import java.util.ArrayList;
 
-public class FlashCardPage extends AppCompatActivity {
+public class ModePage extends AppCompatActivity {
     ArrayList<FlashCard> flashCards;
     int currentCardCount;
     FlashCard currentCard;
@@ -34,7 +34,7 @@ public class FlashCardPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flash_card_page);
+        setContentView(R.layout.activity_mode_page);
 
         initialSetup();
         flashCards = new ArrayList<>();
@@ -224,10 +224,10 @@ public class FlashCardPage extends AppCompatActivity {
         cardCounterLabel = findViewById(R.id.flash_card_counter_label);
         if (isHone)
         {
-            setTitle(getString(R.string.flash_card_hone_title));
+            setTitle(getString(R.string.mode_hone_title));
         }
         else{
-            setTitle(getString(R.string.flash_card_learn_title));
+            setTitle(getString(R.string.mode_learn_title));
         }
     }
 

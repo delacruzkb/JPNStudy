@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/ordeal_key_in_text_field"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+        android:autoSizeTextType="uniform"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/ordeal_key_in_layout_clear_button2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+        android:layout_span="3"
+        android:autoSizeTextType="uniform"
+        android:text="@string/clear_button" />
+
+    <Button
+        android:id="@+id/ordeal_key_in_layout_submit_button2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+        android:layout_span="3"
+        android:autoSizeTextType="uniform"
+        android:text="@string/submit_button" />
+
+</LinearLayout>

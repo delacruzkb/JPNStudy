@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Pages.FlashCardMenu">
+    tools:context=".Pages.ModeMenu">
 
     <TextView
         android:id="@+id/flash_card_menu_amount_label"
@@ -129,7 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal|center_vertical"
-            android:text="@string/flash_card_menu_ordeal_label"
+            android:text="@string/mode_menu_ordeal_label"
             android:textSize="@dimen/sub_header_text_size" />
 
         <Spinner

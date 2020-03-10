@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".Pages.ModePage">
+
+    <TextView
+        android:id="@+id/flash_card_menu_mode_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/sub_header_text_size" />
+
+    <TextView
+        android:id="@+id/flash_card_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/flash_card_text_area_size"
+        android:autoSizeTextType="uniform"
+        android:ellipsize="none"
+        android:gravity="center_horizontal|center_vertical"
+        android:scrollHorizontally="false"
+        android:textSize="@dimen/flash_card_text_size" />
+
+</LinearLayout>

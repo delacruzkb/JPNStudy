@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.example.jpnstudy.R;
 
-public class FlashCardMenu extends AppCompatActivity {
+public class ModeMenu extends AppCompatActivity {
     String mode;
     String cardFront;
     String cardBack;
@@ -24,7 +24,7 @@ public class FlashCardMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flash_card_menu);
+        setContentView(R.layout.activity_mode_menu);
         Intent intent = getIntent();
         mode = intent.getStringExtra("mode");
         if(!mode.equals(getString(R.string.ordeal_label)))
@@ -52,7 +52,7 @@ public class FlashCardMenu extends AppCompatActivity {
         }
         else{
             int amount = Integer.parseInt(amountEdit.getText().toString());
-            Intent intent = new Intent(this, FlashCardPage.class);
+            Intent intent = new Intent(this, ModePage.class);
             if(mode.equals(getString(R.string.ordeal_label))){
                mode= ordealSpinner.getSelectedItem().toString();
             }
@@ -84,7 +84,7 @@ public class FlashCardMenu extends AppCompatActivity {
 
     private void ordealModeSetup() {
         ordealDescription = findViewById(R.id.flash_card_menu_ordeal_description_text_view);
-        ordealDescription.setText(getString(R.string.flash_card_menu_ordeal_multiple_choice_description));
+        ordealDescription.setText(getString(R.string.mode_menu_ordeal_multiple_choice_description));
         ordealSpinner= findViewById(R.id.flash_card_menu_ordeal_spinner);
         ordealSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -92,22 +92,22 @@ public class FlashCardMenu extends AppCompatActivity {
                 switch (position)
                 {
                     case 0:
-                        ordealDescription.setText(getString(R.string.flash_card_menu_ordeal_multiple_choice_description));
+                        ordealDescription.setText(getString(R.string.mode_menu_ordeal_multiple_choice_description));
                         break;
                     case 1:
-                        ordealDescription.setText(getString(R.string.flash_card_menu_ordeal_character_choice_description));
+                        ordealDescription.setText(getString(R.string.mode_menu_ordeal_character_choice_description));
                         break;
                     case 2:
-                        ordealDescription.setText(getString(R.string.flash_card_menu_ordeal_key_in_description));
+                        ordealDescription.setText(getString(R.string.mode_menu_ordeal_key_in_description));
                         break;
                     case 3:
-                        ordealDescription.setText(getString(R.string.flash_card_menu_ordeal_mixed_description));
+                        ordealDescription.setText(getString(R.string.mode_menu_ordeal_mixed_description));
                         break;
                     case 4:
-                        ordealDescription.setText(getString(R.string.flash_card_menu_ordeal_weighted_description));
+                        ordealDescription.setText(getString(R.string.mode_menu_ordeal_weighted_description));
                         break;
                     default:
-                        ordealDescription.setText(getString(R.string.flash_card_menu_ordeal_multiple_choice_description));
+                        ordealDescription.setText(getString(R.string.mode_menu_ordeal_multiple_choice_description));
                         break;
                 }
             }

@@ -16,7 +16,7 @@ public class HomePage extends AppCompatActivity {
     }
     //TODO: navigation for the page & material design
     public void flashCard(View view){
-        Intent intent = new Intent(this,FlashCardMenu.class);
+        Intent intent = new Intent(this, ModeMenu.class);
         String mode="";
         boolean error=false;
         switch (view.getId()) {
