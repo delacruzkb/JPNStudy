@@ -36,7 +36,7 @@ public class HomePage extends AppCompatActivity {
         }
         if(!error)
         {
-            intent.putExtra("mode",mode);
+            intent.putExtra(getString(R.string.mode_key),mode);
             startActivity(intent);
         }
 

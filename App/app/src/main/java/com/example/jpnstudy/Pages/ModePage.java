@@ -14,19 +14,18 @@ import com.example.jpnstudy.Database.FlashCardDatabaseReader;
 import com.example.jpnstudy.Entities.FlashCard;
 import com.example.jpnstudy.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class ModePage extends AppCompatActivity {
     ArrayList<FlashCard> flashCards;
     int currentCardCount;
     FlashCard currentCard;
-    TextView cardCounterLabel;
-    TextView card;
 
     String cardFront;
     String cardBack;
-    boolean isFront;
-    boolean isHone;
+    String mode;
     int amount;
 
     MenuItem starIcon;
@@ -37,24 +36,8 @@ public class ModePage extends AppCompatActivity {
         setContentView(R.layout.activity_mode_page);
 
         initialSetup();
-        flashCards = new ArrayList<>();
-        for( int i = 0; i<amount;i++) {
-            FlashCard temp = new FlashCard();
-            temp.setEnglish("English " + (i + 1));
-            temp.setKanji("Kanji " + (i + 1));
-            temp.setHiragana("Hiragana " + (i + 1));
-            temp.setStarred(true);
-            temp.setMastered(true);
-            flashCards.add(temp);
-        }
-        //loadCardsFromDatabase();
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        loadCard(currentCardCount);
+        loadCardsFromDatabase();
+        //loadModeFrame();
     }
 
     @Override
@@ -89,96 +72,32 @@ public class ModePage extends AppCompatActivity {
     }
 
 
-
-    public void nextCard(View view) {
-        if(currentCardCount < flashCards.size()-1)
-        {
-            currentCardCount = currentCardCount +1;
-            loadCard(currentCardCount);
-        }
+    private void initialSetup() {
+        Intent intent = getIntent();
+        cardFront = intent.getStringExtra(getString(R.string.card_front_key));
+        cardBack = intent.getStringExtra(getString(R.string.card_back_key));
+        mode = intent.getStringExtra(getString(R.string.mode_key));
+        amount = intent.getIntExtra(getString(R.string.amount_key),1);
     }
 
-    public void prevCard(View view){
-        if(currentCardCount > 0)
-        {
-            currentCardCount = currentCardCount -1;
-            loadCard(currentCardCount);
-
+    private void loadCardsFromDatabase() {
+        //TODO: load cards
+        flashCards = new ArrayList<>();
+        for( int i = 0; i<amount;i++) {
+            FlashCard temp = new FlashCard();
+            temp.setEnglish("English " + (i + 1));
+            temp.setKanji("Kanji " + (i + 1));
+            temp.setHiragana("Hiragana " + (i + 1));
+            temp.setStarred(true);
+            temp.setMastered(true);
+            flashCards.add(temp);
         }
+        currentCardCount = flashCards.size();
+        currentCard = flashCards.get(0);
     }
 
-    public void flipCard(View view){
-        if(!isHone && !currentCard.isKnown());
-        {
-            currentCard.setKnown(true);
-            //TODO: Update DAO known
-        }
-        if(!isFront)
-        {
-            if(cardFront.equalsIgnoreCase(getString(R.string.english_label)))
-            {
-                card.setText(currentCard.getEnglish());
-            }
-            else if(cardFront.equalsIgnoreCase(getString(R.string.hiragana_label)))
-            {
-                card.setText(currentCard.getHiragana());
-            }
-            else if(cardFront.equalsIgnoreCase(getString(R.string.kanji_label)))
-            {
-                card.setText(currentCard.getKanji());
-            }
-        }
-        else
-        {
-            if(cardBack.equalsIgnoreCase(getString(R.string.english_label)))
-            {
-                card.setText(currentCard.getEnglish());
-            }
-            else if(cardBack.equalsIgnoreCase(getString(R.string.hiragana_label)))
-            {
-                card.setText(currentCard.getHiragana());
-            }
-            else if(cardBack.equalsIgnoreCase(getString(R.string.kanji_label)))
-            {
-                card.setText(currentCard.getKanji());
-            }
-        }
-        isFront = !isFront;
-    }
-
-
-    private void loadCard(int cardNumber) {
-        isFront=true;
-        cardCounterLabel.setText((currentCardCount +1) + "/" + (flashCards.size()));
-        currentCard = flashCards.get(cardNumber);
-        if(cardFront.equalsIgnoreCase(getString(R.string.english_label)))
-        {
-            card.setText(currentCard.getEnglish());
-        }
-        else if(cardFront.equalsIgnoreCase(getString(R.string.hiragana_label)))
-        {
-            card.setText(currentCard.getHiragana());
-        }
-        else if(cardFront.equalsIgnoreCase(getString(R.string.kanji_label)))
-        {
-            card.setText(currentCard.getKanji());
-        }
-
-        if (masterIcon != null || starIcon != null)
-        {
-            if( currentCard.isMastered()) {
-                masterIcon.setIcon(R.drawable.ic_mastered);
-            }
-            else{
-                masterIcon.setIcon(R.drawable.ic_un_mastered);
-            }
-            if( currentCard.isStarred()) {
-                starIcon.setIcon(R.drawable.ic_starred);
-            }
-            else{
-                starIcon.setIcon(R.drawable.ic_un_starred);
-            }
-        }
+    private void loadModeFrame(){
+        //TODO:frames based on mode
     }
 
     private void toggleStar(MenuItem item) {
@@ -205,35 +124,6 @@ public class ModePage extends AppCompatActivity {
         {
             item.setIcon(R.drawable.ic_un_mastered);
         }
-    }
-
-    private void initialSetup() {
-        currentCardCount=0;
-
-        //Get data from Menu
-        Intent intent = getIntent();
-        amount = intent.getIntExtra("amount",1);
-        isHone = intent.getBooleanExtra("isHone",false);
-        cardFront = intent.getStringExtra("cardFront");
-        cardBack = intent.getStringExtra("cardBack");
-
-        //View Setup
-        TextView modeLabel = findViewById(R.id.flash_card_menu_mode_label);
-        modeLabel.setText("Front : " + cardFront + " / Back : " + cardBack);
-        card = findViewById(R.id.flash_card_text);
-        cardCounterLabel = findViewById(R.id.flash_card_counter_label);
-        if (isHone)
-        {
-            setTitle(getString(R.string.mode_hone_title));
-        }
-        else{
-            setTitle(getString(R.string.mode_learn_title));
-        }
-    }
-
-    private void loadCardsFromDatabase() {
-        FlashCardDatabaseReader db = new FlashCardDatabaseReader(getApplicationContext());
-        flashCards = db.searchFlashCardKnown(isHone,amount);
     }
 
     //TODO: on back press, prompt
