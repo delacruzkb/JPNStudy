@@ -6,11 +6,12 @@ import androidx.room.Fts4;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 
 
 @Fts4
 @Entity
-public class FlashCard {
+public class FlashCard implements Serializable {
 
     @Ignore
     @PrimaryKey

@@ -68,6 +68,9 @@ public class ModeMenu extends AppCompatActivity {
                mode= ordealSpinner.getSelectedItem().toString();
                intent = new Intent(this, OrdealPage.class);
             }
+            intent.putExtra(getString(R.string.card_front_key),cardFront);
+            intent.putExtra(getString(R.string.card_back_key),cardBack);
+            intent.putExtra(getString(R.string.amount_key), amount);
             intent.putExtra(getString(R.string.card_key), getCards(amount));
             startActivity(intent);
         }

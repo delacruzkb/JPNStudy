@@ -98,6 +98,7 @@ public class FlashCardPage extends AppCompatActivity {
                 flashCardText.setText(currentCard.getKanji());
             }
         }
+        isFront= !isFront;
     }
 
     public void nextCard(View view){
@@ -110,7 +111,7 @@ public class FlashCardPage extends AppCompatActivity {
     public void prevCard(View view){
         if(currentCardIndex>0)
         {
-            loadCard(currentCardIndex+1);
+            loadCard(currentCardIndex-1);
         }
     }
 
