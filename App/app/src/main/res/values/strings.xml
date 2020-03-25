@@ -15,7 +15,7 @@
     <string name="card_front_key">cardFront</string>
     <string name="card_back_key">cardBack</string>
     <string name="amount_key">amount</string>
-
+    <string name="card_key">card</string>
     //Home Menu
     <string name="learn_label">Learn</string>
     <string name="hone_label">Hone</string>

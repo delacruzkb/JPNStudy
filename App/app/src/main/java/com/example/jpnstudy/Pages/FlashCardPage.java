@@ -7,37 +7,33 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
-import com.example.jpnstudy.Database.FlashCardDatabaseReader;
 import com.example.jpnstudy.Entities.FlashCard;
 import com.example.jpnstudy.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-public class ModePage extends AppCompatActivity {
+public class FlashCardPage extends AppCompatActivity {
+
     ArrayList<FlashCard> flashCards;
-    int currentCardCount;
+
     FlashCard currentCard;
+
+    MenuItem starIcon;
+    MenuItem masterIcon;
 
     String cardFront;
     String cardBack;
     String mode;
     int amount;
+    int cardCount;
+    int currentCardIndex;
 
-    MenuItem starIcon;
-    MenuItem masterIcon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mode_page);
-
+        setContentView(R.layout.activity_flash_card_page);
         initialSetup();
-        loadCardsFromDatabase();
-        //loadModeFrame();
     }
 
     @Override
@@ -78,27 +74,16 @@ public class ModePage extends AppCompatActivity {
         cardBack = intent.getStringExtra(getString(R.string.card_back_key));
         mode = intent.getStringExtra(getString(R.string.mode_key));
         amount = intent.getIntExtra(getString(R.string.amount_key),1);
+        flashCards = (ArrayList<FlashCard>) intent.getSerializableExtra(getString(R.string.card_key));
     }
 
-    private void loadCardsFromDatabase() {
-        //TODO: load cards
-        flashCards = new ArrayList<>();
-        for( int i = 0; i<amount;i++) {
-            FlashCard temp = new FlashCard();
-            temp.setEnglish("English " + (i + 1));
-            temp.setKanji("Kanji " + (i + 1));
-            temp.setHiragana("Hiragana " + (i + 1));
-            temp.setStarred(true);
-            temp.setMastered(true);
-            flashCards.add(temp);
-        }
-        currentCardCount = flashCards.size();
-        currentCard = flashCards.get(0);
-    }
+    //
 
     private void loadModeFrame(){
         //TODO:frames based on mode
     }
+
+
 
     private void toggleStar(MenuItem item) {
         currentCard.setStarred(!currentCard.isStarred());
@@ -128,4 +113,5 @@ public class ModePage extends AppCompatActivity {
 
     //TODO: on back press, prompt
     //TODO: again, but new
+
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Pages.FlashCardPage">
+
+    <TextView
+        android:id="@+id/flash_card_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/flash_card_text_area_size"
+        android:autoSizeTextType="uniform"
+        android:ellipsize="none"
+        android:gravity="center_horizontal|center_vertical"
+        android:scrollHorizontally="false"
+        android:textSize="@dimen/flash_card_text_size" />
+
+    <TextView
+        android:id="@+id/flash_card_counter_label2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ordeal_character_button_height"
+        android:autoSizeTextType="uniform"
+        android:gravity="center_horizontal|center_vertical"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:textSize="@dimen/sub_header_text_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/flash_card_previous_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+            android:layout_weight="1"
+            android:autoSizeTextType="uniform"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingTop="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            android:paddingBottom="@dimen/default_padding"
+            android:text="@string/previous_button"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:id="@+id/flash_card_next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+            android:layout_weight="1"
+            android:autoSizeTextType="uniform"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingTop="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            android:paddingBottom="@dimen/default_padding"
+            android:text="@string/next_button"
+            android:textSize="@dimen/button_text_size" />
+    </LinearLayout>
+</LinearLayout>

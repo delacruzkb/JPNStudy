@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -15,7 +14,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jpnstudy.Entities.FlashCard;
 import com.example.jpnstudy.R;
+
+import java.util.ArrayList;
 
 public class ModeMenu extends AppCompatActivity {
     String mode;
@@ -61,14 +63,12 @@ public class ModeMenu extends AppCompatActivity {
         }
         else{
             int amount = Integer.parseInt(amountEdit.getText().toString());
-            Intent intent = new Intent(this, ModePage.class);
+            Intent intent = new Intent(this, FlashCardPage.class);
             if(mode.equals(getString(R.string.ordeal_label))){
                mode= ordealSpinner.getSelectedItem().toString();
+               intent = new Intent(this, OrdealPage.class);
             }
-            intent.putExtra(getString(R.string.card_front_key),cardFront);
-            intent.putExtra(getString(R.string.card_back_key),cardBack);
-            intent.putExtra(getString(R.string.amount_key), amount);
-            intent.putExtra(getString(R.string.mode_key),mode);
+            intent.putExtra(getString(R.string.card_key), getCards(amount));
             startActivity(intent);
         }
     }
@@ -91,6 +91,22 @@ public class ModeMenu extends AppCompatActivity {
         }
     }
 
+    private ArrayList<FlashCard> getCards(int amount)
+    {
+        ArrayList<FlashCard> flashCards = new ArrayList<>();
+        //TODO: load cards
+        for( int i = 0; i<amount;i++) {
+            FlashCard temp = new FlashCard();
+            temp.setEnglish("English " + (i + 1));
+            temp.setKanji("Kanji " + (i + 1));
+            temp.setHiragana("Hiragana " + (i + 1));
+            temp.setStarred(true);
+            temp.setMastered(true);
+            flashCards.add(temp);
+        }
+        return flashCards;
+    }
+
     private void hideOrdealViews(){
         LinearLayout ordealLayout = findViewById(R.id.flash_card_menu_ordeal_layout);
         ordealLayout.setVisibility(View.GONE);
@@ -111,29 +127,32 @@ public class ModeMenu extends AppCompatActivity {
                 switch (position)
                 {
                     case 0:
+                        mode = getString(R.string.mode_menu_ordeal_multiple_choice_description);
                         ordealDescription.setText(getString(R.string.mode_menu_ordeal_multiple_choice_description));
                         break;
                     case 1:
+                        mode = getString(R.string.mode_menu_ordeal_character_choice_description);
                         ordealDescription.setText(getString(R.string.mode_menu_ordeal_character_choice_description));
                         break;
                     case 2:
+                        mode = getString(R.string.mode_menu_ordeal_key_in_description);
                         ordealDescription.setText(getString(R.string.mode_menu_ordeal_key_in_description));
                         break;
                     case 3:
+                        mode = getString(R.string.mode_menu_ordeal_mixed_description);
                         ordealDescription.setText(getString(R.string.mode_menu_ordeal_mixed_description));
                         break;
                     case 4:
+                        mode = getString(R.string.mode_menu_ordeal_weighted_description);
                         ordealDescription.setText(getString(R.string.mode_menu_ordeal_weighted_description));
-                        break;
-                    default:
-                        ordealDescription.setText(getString(R.string.mode_menu_ordeal_multiple_choice_description));
                         break;
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
+                mode = getString(R.string.mode_menu_ordeal_weighted_description);
+                ordealDescription.setText(getString(R.string.mode_menu_ordeal_weighted_description));
             }
 
         });
