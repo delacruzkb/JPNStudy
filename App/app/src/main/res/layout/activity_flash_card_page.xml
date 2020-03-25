@@ -17,8 +17,21 @@
         android:scrollHorizontally="false"
         android:textSize="@dimen/flash_card_text_size" />
 
+    <Button
+        android:id="@+id/flash_card_flip_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+        android:autoSizeTextType="uniform"
+        android:onClick="flipCard"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:text="@string/flip_button"
+        android:textSize="@dimen/button_text_size" />
+
     <TextView
-        android:id="@+id/flash_card_counter_label2"
+        android:id="@+id/flash_card_counter_label"
         android:layout_width="match_parent"
         android:layout_height="@dimen/ordeal_character_button_height"
         android:autoSizeTextType="uniform"
@@ -40,6 +53,7 @@
             android:layout_height="@dimen/ordeal_multiple_choice_button_height"
             android:layout_weight="1"
             android:autoSizeTextType="uniform"
+            android:onClick="prevCard"
             android:paddingLeft="@dimen/default_padding"
             android:paddingTop="@dimen/default_padding"
             android:paddingRight="@dimen/default_padding"
@@ -53,6 +67,7 @@
             android:layout_height="@dimen/ordeal_multiple_choice_button_height"
             android:layout_weight="1"
             android:autoSizeTextType="uniform"
+            android:onClick="nextCard"
             android:paddingLeft="@dimen/default_padding"
             android:paddingTop="@dimen/default_padding"
             android:paddingRight="@dimen/default_padding"

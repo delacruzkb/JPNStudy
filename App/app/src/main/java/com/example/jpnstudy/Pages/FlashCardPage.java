@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.jpnstudy.Entities.FlashCard;
 import com.example.jpnstudy.R;
@@ -14,26 +16,25 @@ import com.example.jpnstudy.R;
 import java.util.ArrayList;
 
 public class FlashCardPage extends AppCompatActivity {
-
     ArrayList<FlashCard> flashCards;
-
     FlashCard currentCard;
-
     MenuItem starIcon;
     MenuItem masterIcon;
-
+    TextView flashCardText;
+    TextView cardCounterLabel;
     String cardFront;
     String cardBack;
     String mode;
     int amount;
     int cardCount;
     int currentCardIndex;
-
+    boolean isFront;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card_page);
         initialSetup();
+        loadCard(0);
     }
 
     @Override
@@ -67,6 +68,74 @@ public class FlashCardPage extends AppCompatActivity {
         }
     }
 
+    public void flipCard(View view){
+        if(isFront)
+        {
+            if(cardBack.equals(getString(R.string.english_label)))
+            {
+                flashCardText.setText(currentCard.getEnglish());
+            }
+            else if(cardBack.equals(getString(R.string.hiragana_label)))
+            {
+                flashCardText.setText(currentCard.getHiragana());
+            }
+            else if(cardBack.equals(getString(R.string.kanji_label)))
+            {
+                flashCardText.setText(currentCard.getKanji());
+            }
+        }
+        else {
+            if(cardFront.equals(getString(R.string.english_label)))
+            {
+                flashCardText.setText(currentCard.getEnglish());
+            }
+            else if(cardFront.equals(getString(R.string.hiragana_label)))
+            {
+                flashCardText.setText(currentCard.getHiragana());
+            }
+            else if(cardFront.equals(getString(R.string.kanji_label)))
+            {
+                flashCardText.setText(currentCard.getKanji());
+            }
+        }
+    }
+
+    public void nextCard(View view){
+        if(currentCardIndex<amount-1)
+        {
+            loadCard(currentCardIndex+1);
+        }
+    }
+
+    public void prevCard(View view){
+        if(currentCardIndex>0)
+        {
+            loadCard(currentCardIndex+1);
+        }
+    }
+
+    private void loadCard(int index) {
+        currentCard = flashCards.get(index);
+        currentCardIndex = index;
+        isFront=true;
+        if(cardFront.equals(getString(R.string.english_label)))
+        {
+            flashCardText.setText(currentCard.getEnglish());
+        }
+        else if(cardFront.equals(getString(R.string.hiragana_label)))
+        {
+            flashCardText.setText(currentCard.getHiragana());
+        }
+        else if(cardFront.equals(getString(R.string.kanji_label)))
+        {
+            flashCardText.setText(currentCard.getKanji());
+        }
+        else
+        {
+            //TODO: toast error
+        }
+        cardCounterLabel.setText( (index+1) + " / "  + amount );
+    }
 
     private void initialSetup() {
         Intent intent = getIntent();
@@ -75,15 +144,11 @@ public class FlashCardPage extends AppCompatActivity {
         mode = intent.getStringExtra(getString(R.string.mode_key));
         amount = intent.getIntExtra(getString(R.string.amount_key),1);
         flashCards = (ArrayList<FlashCard>) intent.getSerializableExtra(getString(R.string.card_key));
+        flashCardText = findViewById(R.id.flash_card_text_view);
+        cardCounterLabel = findViewById(R.id.flash_card_counter_label);
+        isFront=true;
+        currentCardIndex =0;
     }
-
-    //
-
-    private void loadModeFrame(){
-        //TODO:frames based on mode
-    }
-
-
 
     private void toggleStar(MenuItem item) {
         currentCard.setStarred(!currentCard.isStarred());
