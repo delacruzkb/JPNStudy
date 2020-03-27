@@ -44,7 +44,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
@@ -59,7 +59,8 @@
             android:paddingRight="@dimen/default_padding"
             android:paddingBottom="@dimen/default_padding"
             android:text="@string/previous_button"
-            android:textSize="@dimen/button_text_size" />
+            android:textSize="@dimen/button_text_size"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/flash_card_next_button"
@@ -74,5 +75,20 @@
             android:paddingBottom="@dimen/default_padding"
             android:text="@string/next_button"
             android:textSize="@dimen/button_text_size" />
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/flash_card_done_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+        android:autoSizeTextType="uniform"
+        android:onClick="done"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:text="@string/done_button"
+        android:textSize="@dimen/button_text_size"
+        android:visibility="invisible" />
 </LinearLayout>

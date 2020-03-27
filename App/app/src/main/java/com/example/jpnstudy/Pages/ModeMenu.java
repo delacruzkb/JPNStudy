@@ -71,6 +71,7 @@ public class ModeMenu extends AppCompatActivity {
             intent.putExtra(getString(R.string.card_front_key),cardFront);
             intent.putExtra(getString(R.string.card_back_key),cardBack);
             intent.putExtra(getString(R.string.amount_key), amount);
+            intent.putExtra(getString(R.string.mode_key),mode);
             intent.putExtra(getString(R.string.card_key), getCards(amount));
             startActivity(intent);
         }
@@ -159,6 +160,13 @@ public class ModeMenu extends AppCompatActivity {
             }
 
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, HomePage.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }
 

@@ -26,6 +26,7 @@
     //Mode Menu
 
     <string name="amount_label">Amount</string>
+
     <string name="properties_front_label">Card Front</string>
     <string name="properties_back_label">Card Back</string>
     <string name="question_label">Question</string>
@@ -33,13 +34,17 @@
     <string name="hiragana_label">Hiragana</string>
     <string name="english_label">English</string>
     <string name="kanji_label">Kanji</string>
+
     <string name="continue_label">Get Cards</string>
+
     <string name="same_card_error">Please choose different card sides</string>
     <string name="wrong_amount_error">Invalid amount</string>
     <string name="null_card_side_error">Please select the card properties</string>
+
     <string name="mode_menu_hone_title">Hone your skills</string>
     <string name="mode_menu_learn_title">Learn some cards</string>
     <string name="mode_menu_ordeal_title">Overcome an Ordeal</string>
+
     <string name="mode_menu_ordeal_label">Ordeal Type</string>
     <string name="mode_menu_ordeal_multiple_choice_description">Choose from 4 possible options</string>
     <string name="mode_menu_ordeal_character_choice_description">Choose from a set of possible characters</string>
@@ -47,12 +52,17 @@
     <string name="mode_menu_ordeal_mixed_description">Random assortment of Multiple Choice, Character Choice, and Key-in</string>
     <string name="mode_menu_ordeal_weighted_description">Assortment of Multiple Choice, Character Choice, and Key-in based on your familiarity of the card</string>
 
-    //Mode Page
+    //Flash Card Page
     <string name="flip_button">Flip</string>
     <string name="previous_button">Prev</string>
     <string name="next_button">Next</string>
     <string name="mode_hone_title">HONE!</string>
     <string name="mode_learn_title">LEARN!</string>
+    <string name="done_button">Finish</string>
+    <string name="done_dialog_title">Done?</string>
+    <string name="again_dialog_button">Encore!</string>
+    <string name="return_home_dialog_button">Retreat.</string>
+    //Ordeal Page
     <string name="mode_ordeal_title">ORDEAL!</string>
     <string name="clear_button">Clear</string>
     <string name="submit_button">Submit</string>

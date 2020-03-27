@@ -9,11 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Pages.FlashCardPage"
-            android:parentActivityName=".Pages.HomePage">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.HomePage" />
+        <activity android:name=".Pages.FlashCardPage">
         </activity>
         <activity android:name=".Pages.ModeMenu" />
         <activity
@@ -25,34 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Pages.OrdealPage"
-            android:parentActivityName=".Pages.HomePage">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.HomePage" />
+        <activity android:name=".Pages.OrdealPage">
         </activity>
         <activity
             android:name=".Pages.SettingsPage"
-            android:parentActivityName=".Pages.HomePage"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.HomePage" />
+        </activity>
+        <activity android:name=".Pages.AddCardPage">
         </activity>
         <activity
-            android:name=".Pages.AddCardPage"
-            android:parentActivityName=".Pages.SettingsPage">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.HomePage" />
-        </activity>
-        <activity
-            android:name=".Pages.SearchPage"
-            android:parentActivityName=".Pages.SettingsPage">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Pages.HomePage" />
+            android:name=".Pages.SearchPage">
         </activity>
     </application>
 
