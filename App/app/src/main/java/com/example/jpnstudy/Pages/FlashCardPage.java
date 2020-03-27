@@ -51,15 +51,21 @@ public class FlashCardPage extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.app_bar_menu,menu);
         starIcon=menu.getItem(0);
-        masterIcon=menu.getItem(1);
+        if(mode.equals(getString(R.string.hone_label)))
+        {
+            masterIcon=menu.getItem(1);
+            masterIcon.setVisible(true);
+            if(currentCard.isMastered())
+            {
+                masterIcon.setIcon(R.drawable.ic_mastered);
+            }
+        }
+
         if(currentCard.isStarred())
         {
             starIcon.setIcon(R.drawable.ic_starred);
         }
-        if(currentCard.isMastered())
-        {
-            masterIcon.setIcon(R.drawable.ic_mastered);
-        }
+
         return true;
     }
 
@@ -170,12 +176,8 @@ public class FlashCardPage extends AppCompatActivity {
         else if(cardFront.equals(getString(R.string.kanji_label))) {
             flashCardText.setText(currentCard.getKanji());
         }
-        else {
-            //TODO: toast error
-        }
 
-        if(starIcon != null)
-        {
+        if(starIcon != null) {
             if(currentCard.isStarred())
             {
                 starIcon.setIcon(R.drawable.ic_starred);
@@ -186,8 +188,7 @@ public class FlashCardPage extends AppCompatActivity {
             }
         }
 
-        if(masterIcon != null)
-        {
+        if( masterIcon != null) {
             masterIcon.setChecked(currentCard.isMastered());
             if(currentCard.isMastered())
             {
@@ -223,7 +224,6 @@ public class FlashCardPage extends AppCompatActivity {
 
     private void toggleStar(MenuItem item) {
         currentCard.setStarred(!currentCard.isStarred());
-        //TODO: UPDATE DAO star
         if(currentCard.isStarred())
         {
             item.setIcon(R.drawable.ic_starred);
@@ -236,7 +236,6 @@ public class FlashCardPage extends AppCompatActivity {
 
     private void toggleMaster(MenuItem item) {
         currentCard.setMastered(!currentCard.isMastered());
-        //TODO: UPDATE DAO star
         if(currentCard.isMastered())
         {
             item.setIcon(R.drawable.ic_mastered);
@@ -245,6 +244,11 @@ public class FlashCardPage extends AppCompatActivity {
         {
             item.setIcon(R.drawable.ic_un_mastered);
         }
+    }
+
+    private void update()
+    {
+        //TODO: update at the end, also put it in code
     }
 
     @Override

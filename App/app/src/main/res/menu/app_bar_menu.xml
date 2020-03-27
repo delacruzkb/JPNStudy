@@ -5,11 +5,12 @@
         android:id="@+id/action_star"
         android:icon="@drawable/ic_un_starred"
         android:title="@string/action_starred"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_master"
         android:icon="@drawable/ic_un_mastered"
         android:title="@string/action_mastered"
-        app:showAsAction= "always"/>
+        android:visible="false"
+        app:showAsAction="always" />
 
 </menu>
