@@ -65,7 +65,7 @@ public class ModeMenu extends AppCompatActivity {
             int amount = Integer.parseInt(amountEdit.getText().toString());
             Intent intent = new Intent(this, FlashCardPage.class);
             if(mode.equals(getString(R.string.ordeal_label))){
-               mode= ordealSpinner.getSelectedItem().toString();
+               mode= ordealDescription.getText().toString();
                intent = new Intent(this, OrdealPage.class);
             }
             intent.putExtra(getString(R.string.card_front_key),cardFront);
@@ -95,8 +95,7 @@ public class ModeMenu extends AppCompatActivity {
         }
     }
 
-    private ArrayList<FlashCard> getCards(int amount)
-    {
+    private ArrayList<FlashCard> getCards(int amount) {
         ArrayList<FlashCard> flashCards = new ArrayList<>();
         //TODO: load cards
         for( int i = 0; i<amount;i++) {
@@ -131,23 +130,18 @@ public class ModeMenu extends AppCompatActivity {
                 switch (position)
                 {
                     case 0:
-                        mode = getString(R.string.mode_menu_ordeal_multiple_choice_description);
                         ordealDescription.setText(getString(R.string.mode_menu_ordeal_multiple_choice_description));
                         break;
                     case 1:
-                        mode = getString(R.string.mode_menu_ordeal_character_choice_description);
                         ordealDescription.setText(getString(R.string.mode_menu_ordeal_character_choice_description));
                         break;
                     case 2:
-                        mode = getString(R.string.mode_menu_ordeal_key_in_description);
                         ordealDescription.setText(getString(R.string.mode_menu_ordeal_key_in_description));
                         break;
                     case 3:
-                        mode = getString(R.string.mode_menu_ordeal_mixed_description);
                         ordealDescription.setText(getString(R.string.mode_menu_ordeal_mixed_description));
                         break;
                     case 4:
-                        mode = getString(R.string.mode_menu_ordeal_weighted_description);
                         ordealDescription.setText(getString(R.string.mode_menu_ordeal_weighted_description));
                         break;
                 }
@@ -155,7 +149,6 @@ public class ModeMenu extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                mode = getString(R.string.mode_menu_ordeal_weighted_description);
                 ordealDescription.setText(getString(R.string.mode_menu_ordeal_weighted_description));
             }
 

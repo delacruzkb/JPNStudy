@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="@dimen/ordeal_answer_area_height"
+    android:gravity="center"
     android:orientation="vertical">
 
     <Button
@@ -9,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/ordeal_multiple_choice_button_height"
         android:autoSizeTextType="uniform"
+        android:onClick="multipleChoiceButtonPressed"
         android:text="Button" />
 
     <Button
@@ -16,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/ordeal_multiple_choice_button_height"
         android:autoSizeTextType="uniform"
+        android:onClick="multipleChoiceButtonPressed"
         android:text="Button" />
 
     <Button
@@ -23,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/ordeal_multiple_choice_button_height"
         android:autoSizeTextType="uniform"
+        android:onClick="multipleChoiceButtonPressed"
         android:text="Button" />
 
     <Button
@@ -30,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/ordeal_multiple_choice_button_height"
         android:autoSizeTextType="uniform"
+        android:onClick="multipleChoiceButtonPressed"
         android:text="Button" />
 
 </LinearLayout>

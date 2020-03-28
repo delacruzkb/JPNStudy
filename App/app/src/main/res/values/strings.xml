@@ -62,8 +62,11 @@
     <string name="done_dialog_title">Done?</string>
     <string name="again_dialog_button">Encore!</string>
     <string name="return_home_dialog_button">Retreat.</string>
+
     //Ordeal Page
     <string name="mode_ordeal_title">ORDEAL!</string>
+    <string name="backspace_button">Delete</string>
     <string name="clear_button">Clear</string>
+    <string name="confirm_button">Confirm</string>
     <string name="submit_button">Submit</string>
 </resources>

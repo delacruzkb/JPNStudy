@@ -82,7 +82,7 @@ public class FlashCardPage extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
+    //TODO: update command for done/again/quit
     public void flipCard(View view){
         if(isFront)
         {
@@ -275,7 +275,4 @@ public class FlashCardPage extends AppCompatActivity {
         builder.create();
         builder.show();
     }
-
-
-
 }
