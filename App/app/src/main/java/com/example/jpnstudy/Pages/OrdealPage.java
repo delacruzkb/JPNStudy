@@ -20,6 +20,7 @@ import com.example.jpnstudy.Entities.FlashCard;
 import com.example.jpnstudy.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class OrdealPage extends AppCompatActivity {
     ArrayList<FlashCard> ordeals;
@@ -126,29 +127,10 @@ public class OrdealPage extends AppCompatActivity {
         currentCardIndex = index;
         setTitle("Ordeal #" + currentCardIndex);
 
-        if(ordealPromptType.equals(getString(R.string.english_label))) {
-            promptTextView.setText(currentOrdeal.getEnglish());
-        }
-        else if(ordealPromptType.equals(getString(R.string.hiragana_label))) {
-            promptTextView.setText(currentOrdeal.getHiragana());
-        }
-        else if(ordealPromptType.equals(getString(R.string.kanji_label))) {
-            promptTextView.setText(currentOrdeal.getKanji());
-        }
+        promptTextView.setText(getStringFromType(currentOrdeal, ordealPromptType));
 
-        if(ordealAnswerType.equals(getString(R.string.english_label))) {
-            answerFieldEditText.setHint(R.string.english_label);
-            correctAnswer = currentOrdeal.getEnglish();
-        }
-        else if(ordealAnswerType.equals(getString(R.string.hiragana_label))) {
-            answerFieldEditText.setHint(R.string.hiragana_label);
-            correctAnswer = currentOrdeal.getHiragana();
-        }
-        else if(ordealAnswerType.equals(getString(R.string.kanji_label))) {
-            answerFieldEditText.setHint(R.string.kanji_label);
-            correctAnswer = currentOrdeal.getKanji();
-        }
-
+        correctAnswer = getStringFromType(currentOrdeal, ordealAnswerType);
+        answerFieldEditText.setHint(ordealAnswerType);
     }
 
     public void confirmButtonPressed(View view){
@@ -242,10 +224,51 @@ public class OrdealPage extends AppCompatActivity {
 
     private void multiSelectLayoutSetup() {
        charSelectLayout.setVisibility(View.GONE);
-       multiSelectLayout.setVisibility(View.INVISIBLE);
+       multiSelectLayout.setVisibility(View.VISIBLE);
        answerFieldEditText.setVisibility(View.GONE);
        confirmButton.setVisibility(View.GONE);
+       /*
+       ArrayList<FlashCard> ordealsCopy =(ArrayList<FlashCard>) ordeals.clone();
+
+       ordealsCopy.remove(currentCardIndex);
+       Collections.shuffle(ordealsCopy);
+
+       ArrayList<FlashCard> answers =  new ArrayList<>();
+       answers.add(currentOrdeal);
+       answers.add(ordealsCopy.remove((int)Math.random()*(ordealsCopy.size())*10));
+       answers.add(ordealsCopy.remove((int)Math.random()*(ordealsCopy.size())*10));
+       answers.add(ordealsCopy.remove((int)Math.random()*(ordealsCopy.size())*10));
+
+       Collections.shuffle(answers);
+
+       Button choice1= findViewById(R.id.ordeal_multiple_choice_button_1);
+       choice1.setText(getStringFromType(answers.get(0),ordealAnswerType));
+
+       Button choice2= findViewById(R.id.ordeal_multiple_choice_button_2);
+       choice2.setText(getStringFromType(answers.get(1),ordealAnswerType));
+
+       Button choice3= findViewById(R.id.ordeal_multiple_choice_button_3);
+       choice3.setText(getStringFromType(answers.get(2),ordealAnswerType));
+
+       Button choice4= findViewById(R.id.ordeal_multiple_choice_button_4);
+       choice4.setText(getStringFromType(answers.get(3),ordealAnswerType));
+       // */
    }
+
+    private String getStringFromType(FlashCard card, String type) {
+        String rtnval="";
+        if(type.equals(getString(R.string.english_label))) {
+            rtnval = card.getEnglish();
+        }
+        else if(type.equals(getString(R.string.hiragana_label))) {
+            rtnval = card.getHiragana();
+        }
+        else if(type.equals(getString(R.string.kanji_label))) {
+            rtnval = card.getKanji();
+        }
+
+        return rtnval;
+    }
 
     private void toggleStar(MenuItem item) {
         currentOrdeal.setStarred(!currentOrdeal.isStarred());
