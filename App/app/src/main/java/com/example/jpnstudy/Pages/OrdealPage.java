@@ -31,7 +31,6 @@ public class OrdealPage extends AppCompatActivity {
     String userAnswer;
     String correctAnswer;
     int amount;
-    int cardCount;
     int currentCardIndex;
     int score;
 
@@ -43,6 +42,7 @@ public class OrdealPage extends AppCompatActivity {
     LinearLayout charSelectLayout;
     EditText answerFieldEditText;
     TextView promptTextView;
+    TextView scoreTextView;
     Button helperButton;
     Button confirmButton;
 
@@ -102,6 +102,8 @@ public class OrdealPage extends AppCompatActivity {
         helperButton = findViewById(R.id.ordeal_helper_button);
         confirmButton = findViewById(R.id.ordeal_confirm_button);
         promptTextView = findViewById(R.id.prompt_text_view);
+        scoreTextView = findViewById(R.id.ordeal_score_label);
+        setScore(0);
     }
 
     private void loadOrdeal(int index) {
@@ -123,9 +125,10 @@ public class OrdealPage extends AppCompatActivity {
         }
 
         //loads proper information
+        userAnswer="";
         currentOrdeal = ordeals.get(index);
         currentCardIndex = index;
-        setTitle("Ordeal #" + currentCardIndex);
+        setTitle("Ordeal #" + (currentCardIndex + 1 ));
 
         promptTextView.setText(getStringFromType(currentOrdeal, ordealPromptType));
 
@@ -139,24 +142,18 @@ public class OrdealPage extends AppCompatActivity {
         //proceed until done
     }
 
+    //TODO: code as radio buttons
     public void multipleChoiceButtonPressed(View view){
         Button input = (Button) view;
         input.requestFocus();
         userAnswer= input.getText().toString();
-        if(confirmButton.getVisibility() == View.INVISIBLE)
-        {
-            confirmButton.setVisibility(View.VISIBLE);
-        }
+        input.setBackgroundColor(getColor(R.color.selectedButton));
     }
 
     public void characterChoiceButtonPressed(View view){
         Button input = (Button) view;
         userAnswer = answerFieldEditText.getText().toString() + input.getText().toString();
         answerFieldEditText.setText(userAnswer);
-        if(confirmButton.getVisibility() == View.INVISIBLE)
-        {
-            confirmButton.setVisibility(View.VISIBLE);
-        }
     }
 
     private void weightedLayoutSetup() {
@@ -176,7 +173,7 @@ public class OrdealPage extends AppCompatActivity {
     }
 
     private void mixedLayoutSetup(){
-        int layoutPicker = (int)(Math.random()+2);
+        int layoutPicker = (int)(Math.random()*3);
 
         switch (layoutPicker){
             case 0:
@@ -195,64 +192,44 @@ public class OrdealPage extends AppCompatActivity {
        charSelectLayout.setVisibility(View.GONE);
        multiSelectLayout.setVisibility(View.GONE);
        answerFieldEditText.setVisibility(View.VISIBLE);
-       confirmButton.setVisibility(View.VISIBLE);
-       confirmButton.setText(R.string.clear_button);
-       confirmButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               answerFieldEditText.setText("");
-           }
-       });
+       helperButton.setVisibility(View.GONE);
    }
 
     private void charSelectLayoutSetup() {
        charSelectLayout.setVisibility(View.VISIBLE);
        multiSelectLayout.setVisibility(View.GONE);
-       answerFieldEditText.setVisibility(View.GONE);
-        confirmButton.setVisibility(View.INVISIBLE);
-        confirmButton.setText(R.string.clear_button);
-        confirmButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String currentAnswer = answerFieldEditText.getText().toString();
-                if( currentAnswer.length() >0){
-                    answerFieldEditText.setText(currentAnswer.substring(0, currentAnswer.length()-1));
-                }
-            }
-        });
+       helperButton.setVisibility(View.VISIBLE);
+       answerFieldEditText.setVisibility(View.VISIBLE);
    }
 
     private void multiSelectLayoutSetup() {
        charSelectLayout.setVisibility(View.GONE);
        multiSelectLayout.setVisibility(View.VISIBLE);
        answerFieldEditText.setVisibility(View.GONE);
-       confirmButton.setVisibility(View.GONE);
-       /*
+       helperButton.setVisibility(View.GONE);
+
        ArrayList<FlashCard> ordealsCopy =(ArrayList<FlashCard>) ordeals.clone();
-
-       ordealsCopy.remove(currentCardIndex);
+       FlashCard answerOrdeal = ordealsCopy.remove(currentCardIndex);
        Collections.shuffle(ordealsCopy);
-
-       ArrayList<FlashCard> answers =  new ArrayList<>();
-       answers.add(currentOrdeal);
-       answers.add(ordealsCopy.remove((int)Math.random()*(ordealsCopy.size())*10));
-       answers.add(ordealsCopy.remove((int)Math.random()*(ordealsCopy.size())*10));
-       answers.add(ordealsCopy.remove((int)Math.random()*(ordealsCopy.size())*10));
-
-       Collections.shuffle(answers);
+       ArrayList<FlashCard> choices = new ArrayList<>();
+       choices.add(answerOrdeal);
+       for(int i =0; i< 3; i++)
+       {
+           choices.add(ordealsCopy.remove(0));
+       }
+       Collections.shuffle(choices);
 
        Button choice1= findViewById(R.id.ordeal_multiple_choice_button_1);
-       choice1.setText(getStringFromType(answers.get(0),ordealAnswerType));
+       choice1.setText(getStringFromType(choices.remove(0),ordealAnswerType));
 
        Button choice2= findViewById(R.id.ordeal_multiple_choice_button_2);
-       choice2.setText(getStringFromType(answers.get(1),ordealAnswerType));
+       choice2.setText(getStringFromType(choices.remove(0),ordealAnswerType));
 
        Button choice3= findViewById(R.id.ordeal_multiple_choice_button_3);
-       choice3.setText(getStringFromType(answers.get(2),ordealAnswerType));
+       choice3.setText(getStringFromType(choices.remove(0),ordealAnswerType));
 
        Button choice4= findViewById(R.id.ordeal_multiple_choice_button_4);
-       choice4.setText(getStringFromType(answers.get(3),ordealAnswerType));
-       // */
+       choice4.setText(getStringFromType(choices.remove(0),ordealAnswerType));
    }
 
     private String getStringFromType(FlashCard card, String type) {
@@ -270,6 +247,9 @@ public class OrdealPage extends AppCompatActivity {
         return rtnval;
     }
 
+    private void setScore(int score) {
+        scoreTextView.setText(score +  " " + getString(R.string.score_text));
+    }
     private void toggleStar(MenuItem item) {
         currentOrdeal.setStarred(!currentOrdeal.isStarred());
         //TODO: UPDATE DAO star

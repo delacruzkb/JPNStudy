@@ -91,4 +91,5 @@
     <string name="clear_button">Clear</string>
     <string name="confirm_button">Confirm</string>
     <string name="submit_button">Submit</string>
+    <string name="score_text">Cleared!</string>
 </resources>
