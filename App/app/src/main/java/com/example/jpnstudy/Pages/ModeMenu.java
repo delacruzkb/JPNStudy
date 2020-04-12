@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -43,16 +42,11 @@ public class ModeMenu extends AppCompatActivity {
     }
 
     public void submit(View view){
-        EditText amountEdit = findViewById(R.id.flash_card_menu_amount_edittext);
+        Spinner amountSpinner = findViewById(R.id.flash_card_menu_amount_spinner);
         RadioGroup frontRadioGroup = findViewById(R.id.flash_card_menu_card_front_radio_group);
         RadioGroup backRadioGroup= findViewById(R.id.flash_card_menu_card_back_radio_group);
 
-        String amountText =amountEdit.getText().toString();
-        if(  amountText.length()<1 || Integer.parseInt(amountText)==0)
-        {
-            Toast.makeText(this,getText(R.string.wrong_amount_error), Toast.LENGTH_SHORT).show();
-        }
-        else if(frontRadioGroup.getCheckedRadioButtonId() == -1 ||
+        if(frontRadioGroup.getCheckedRadioButtonId() == -1 ||
                 backRadioGroup.getCheckedRadioButtonId() == -1)
         {
             Toast.makeText(this,getText(R.string.null_card_side_error), Toast.LENGTH_SHORT).show();
@@ -62,7 +56,7 @@ public class ModeMenu extends AppCompatActivity {
             Toast.makeText(this,getText(R.string.same_card_error), Toast.LENGTH_SHORT).show();
         }
         else{
-            int amount = Integer.parseInt(amountEdit.getText().toString());
+            int amount = Integer.parseInt(amountSpinner.getSelectedItem().toString());
             Intent intent = new Intent(this, FlashCardPage.class);
             if(mode.equals(getString(R.string.ordeal_label))){
                mode= ordealDescription.getText().toString();

@@ -7,21 +7,28 @@
     android:orientation="vertical"
     tools:context=".Pages.ModeMenu">
 
-    <TextView
-        android:id="@+id/flash_card_menu_amount_label"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="@string/amount_label"
-        android:textSize="@dimen/sub_header_text_size" />
+        android:orientation="horizontal"
+        android:padding="@dimen/default_padding">
 
-    <EditText
-        android:id="@+id/flash_card_menu_amount_edittext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:textSize="@dimen/form_fill_text_size" />
+        <TextView
+            android:id="@+id/flash_card_menu_amount_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/amount_label"
+            android:textSize="@dimen/sub_header_text_size" />
+
+        <Spinner
+            android:id="@+id/flash_card_menu_amount_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:entries="@array/cardAmounts"
+            android:spinnerMode="dialog"
+            android:textAlignment="center" />
+    </LinearLayout>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -136,7 +143,7 @@
         <Spinner
             android:id="@+id/flash_card_menu_ordeal_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/ordeal_character_button_height"
             android:entries="@array/challengeLevels"
             android:spinnerMode="dialog" />
 
