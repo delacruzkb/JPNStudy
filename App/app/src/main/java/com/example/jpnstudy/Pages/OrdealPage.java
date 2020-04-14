@@ -41,11 +41,9 @@ public class OrdealPage extends AppCompatActivity {
     MenuItem masterIcon;
 
     LinearLayout multiSelectLayout;
-    LinearLayout charSelectLayout;
     EditText answerFieldEditText;
     TextView promptTextView;
     TextView scoreTextView;
-    Button helperButton;
     Button confirmButton;
     Button continueButton;
 
@@ -99,11 +97,9 @@ public class OrdealPage extends AppCompatActivity {
         amount = intent.getIntExtra(getString(R.string.amount_key),1);
         ordeals = (ArrayList<FlashCard>) intent.getSerializableExtra(getString(R.string.card_key));
 
-        charSelectLayout = findViewById(R.id.ordeal_char_include);
         multiSelectLayout  = findViewById(R.id.ordeal_multi_include);
         answerFieldEditText =findViewById(R.id.ordeal_answer_field_edit_text);
 
-        helperButton = findViewById(R.id.ordeal_helper_button);
         confirmButton = findViewById(R.id.ordeal_confirm_button);
         continueButton = findViewById(R.id.ordeal_continue_button);
 
@@ -117,9 +113,6 @@ public class OrdealPage extends AppCompatActivity {
         if(mode.equals(getString(R.string.mode_menu_ordeal_multiple_choice_description))){
             multiSelectLayoutSetup();
         }
-        else if(mode.equals(getString(R.string.mode_menu_ordeal_character_choice_description))){
-            charSelectLayoutSetup();
-        }
         else if(mode.equals(getString(R.string.mode_menu_ordeal_weighted_description))){
             weightedLayoutSetup();
         }
@@ -129,6 +122,8 @@ public class OrdealPage extends AppCompatActivity {
         else {
             keyInLayoutSetup();
         }
+
+        //hidden by default, must be hidden on card>1 if it was shown prior
         if(masterIcon != null)
         {
             masterIcon.setVisible(false);
@@ -139,6 +134,7 @@ public class OrdealPage extends AppCompatActivity {
         userAnswer="";
         currentOrdeal = ordeals.get(index);
         currentCardIndex = index;
+        //TODO: put in strings.xml
         setTitle("Ordeal #" + (currentCardIndex + 1 ));
 
         promptTextView.setText(getStringFromType(currentOrdeal, ordealPromptType));
@@ -161,6 +157,7 @@ public class OrdealPage extends AppCompatActivity {
             alertMessage = getString(R.string.correct_answer_message);
             alertTitle = getString(R.string.correct_answer_title);
             masterIcon.setVisible(true);
+            //TODO: manipulate right counter based on weight
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         builder.setMessage(alertMessage);
@@ -201,21 +198,11 @@ public class OrdealPage extends AppCompatActivity {
 
     }
 
-    public void characterChoiceButtonPressed(View view){
-        Button input = (Button) view;
-        userAnswer = answerFieldEditText.getText().toString() + input.getText().toString();
-        answerFieldEditText.setText(userAnswer);
-    }
-
     private void weightedLayoutSetup() {
         int rc = currentOrdeal.getRightCounter();
         if(rc<3)
         {
             multiSelectLayoutSetup();
-        }
-        else if(rc<6)
-        {
-            charSelectLayoutSetup();
         }
         else
         {
@@ -224,43 +211,30 @@ public class OrdealPage extends AppCompatActivity {
     }
 
     private void mixedLayoutSetup(){
-        int layoutPicker = (int)(Math.random()*3);
+        int layoutPicker = (int)(Math.random()*2);
 
         switch (layoutPicker){
             case 0:
                 multiSelectLayoutSetup();
                 break;
             case 1:
-                charSelectLayoutSetup();
-                break;
-            case 2:
                 keyInLayoutSetup();
                 break;
         }
     }
 
     private void keyInLayoutSetup() {
-       charSelectLayout.setVisibility(View.GONE);
+        //remove other views from other ordeals
        multiSelectLayout.setVisibility(View.GONE);
+
+       //set up views for key-in
        answerFieldEditText.setVisibility(View.VISIBLE);
        answerFieldEditText.setFocusable(true);
-       helperButton.setVisibility(View.GONE);
-       continueButton.setVisibility(View.GONE);
-   }
-
-    private void charSelectLayoutSetup() {
-       multiSelectLayout.setVisibility(View.GONE);
-       helperButton.setVisibility(View.VISIBLE);
-       charSelectLayout.setVisibility(View.VISIBLE);
-       answerFieldEditText.setVisibility(View.VISIBLE);
-       answerFieldEditText.setFocusable(false);
        continueButton.setVisibility(View.GONE);
    }
 
     private void multiSelectLayoutSetup() {
-        // Hide other ordeal views
-       charSelectLayout.setVisibility(View.GONE);
-       helperButton.setVisibility(View.GONE);
+        // Hide other ordeal views;
        answerFieldEditText.setVisibility(View.GONE);
 
        //show proper view

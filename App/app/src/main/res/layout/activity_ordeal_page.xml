@@ -53,13 +53,6 @@
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
-        <include
-            android:id="@+id/ordeal_char_include"
-            layout="@layout/ordeal_character_choice_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -68,11 +61,12 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/ordeal_helper_button"
+            android:id="@+id/ordeal_delete_button"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/ordeal_multiple_choice_button_height"
             android:layout_weight="1"
             android:autoSizeTextType="uniform"
+            android:onClick="deleteButtonPressed"
             android:paddingLeft="@dimen/default_padding"
             android:paddingTop="@dimen/default_padding"
             android:paddingRight="@dimen/default_padding"
