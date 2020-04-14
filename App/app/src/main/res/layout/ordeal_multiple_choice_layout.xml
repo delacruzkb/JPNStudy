@@ -5,36 +5,42 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/ordeal_multiple_choice_button_1"
+    <RadioGroup
+        android:id="@+id/ordeal_multiple_choice_radio_group"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
-        android:autoSizeTextType="uniform"
-        android:onClick="multipleChoiceButtonPressed"
-        android:text="Button" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/ordeal_multiple_choice_button_2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
-        android:autoSizeTextType="uniform"
-        android:onClick="multipleChoiceButtonPressed"
-        android:text="Button" />
+        <RadioButton
+            android:id="@+id/ordeal_multiple_choice_radio_button_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+            android:autoSizeTextType="uniform"
+            android:onClick="multipleChoiceButtonPressed"
+            android:text="Button" />
 
-    <Button
-        android:id="@+id/ordeal_multiple_choice_button_3"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
-        android:autoSizeTextType="uniform"
-        android:onClick="multipleChoiceButtonPressed"
-        android:text="Button" />
+        <RadioButton
+            android:id="@+id/ordeal_multiple_choice_radio_button_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+            android:autoSizeTextType="uniform"
+            android:onClick="multipleChoiceButtonPressed"
+            android:text="Button" />
 
-    <Button
-        android:id="@+id/ordeal_multiple_choice_button_4"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
-        android:autoSizeTextType="uniform"
-        android:onClick="multipleChoiceButtonPressed"
-        android:text="Button" />
+        <RadioButton
+            android:id="@+id/ordeal_multiple_choice_radio_button_3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+            android:autoSizeTextType="uniform"
+            android:onClick="multipleChoiceButtonPressed"
+            android:text="Button" />
+
+        <RadioButton
+            android:id="@+id/ordeal_multiple_choice_radio_button_4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+            android:autoSizeTextType="uniform"
+            android:onClick="multipleChoiceButtonPressed"
+            android:text="Button" />
+    </RadioGroup>
 
 </LinearLayout>

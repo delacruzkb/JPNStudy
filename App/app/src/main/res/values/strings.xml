@@ -88,8 +88,13 @@
     //Ordeal Page
     <string name="mode_ordeal_title">ORDEAL!</string>
     <string name="backspace_button">Delete</string>
-    <string name="clear_button">Clear</string>
+    <string name="continue_button">Continue</string>
     <string name="confirm_button">Confirm</string>
     <string name="submit_button">Submit</string>
     <string name="score_text">Cleared!</string>
+    <string name="correct_answer_title">Ordeal Cleared!</string>
+    <string name="correct_answer_message">Ordeal Cleared!</string>
+    <string name="wrong_answer_title">Ordeal Failed</string>
+    <string name="wrong_answer_message">Solution:</string>
+    <string name="ordeal_dialog_button">Got it!</string>
 </resources>

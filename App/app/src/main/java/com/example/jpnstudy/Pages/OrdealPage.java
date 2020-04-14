@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.jpnstudy.Entities.FlashCard;
@@ -45,6 +47,7 @@ public class OrdealPage extends AppCompatActivity {
     TextView scoreTextView;
     Button helperButton;
     Button confirmButton;
+    Button continueButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,8 +102,11 @@ public class OrdealPage extends AppCompatActivity {
         charSelectLayout = findViewById(R.id.ordeal_char_include);
         multiSelectLayout  = findViewById(R.id.ordeal_multi_include);
         answerFieldEditText =findViewById(R.id.ordeal_answer_field_edit_text);
+
         helperButton = findViewById(R.id.ordeal_helper_button);
         confirmButton = findViewById(R.id.ordeal_confirm_button);
+        continueButton = findViewById(R.id.ordeal_continue_button);
+
         promptTextView = findViewById(R.id.prompt_text_view);
         scoreTextView = findViewById(R.id.ordeal_score_label);
         setScore(0);
@@ -123,6 +129,11 @@ public class OrdealPage extends AppCompatActivity {
         else {
             keyInLayoutSetup();
         }
+        if(masterIcon != null)
+        {
+            masterIcon.setVisible(false);
+        }
+
 
         //loads proper information
         userAnswer="";
@@ -137,17 +148,52 @@ public class OrdealPage extends AppCompatActivity {
     }
 
     public void confirmButtonPressed(View view){
-        //check if right
-        //if right: show master button and increase score and right counter
-        //proceed until done
+        String alertMessage = getString(R.string.wrong_answer_message) + correctAnswer;
+        String alertTitle = getString(R.string.wrong_answer_title);
+        if(userAnswer.equals(correctAnswer))
+        {
+            score = score + 1;
+            setScore(score);
+            alertMessage = getString(R.string.correct_answer_message);
+            alertTitle = getString(R.string.correct_answer_title);
+            masterIcon.setVisible(true);
+        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        builder.setMessage(alertMessage);
+        builder.setTitle(alertTitle);
+        builder.setPositiveButton(R.string.ordeal_dialog_button, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //do nothing
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        confirmButton.setVisibility(View.GONE);
+        continueButton.setVisibility(View.VISIBLE);
     }
 
-    //TODO: code as radio buttons
+    public void continueButtonPressed(View view){
+        if(currentCardIndex < amount-1) {
+            confirmButton.setVisibility(View.VISIBLE);
+            currentCardIndex = currentCardIndex + 1;
+            loadOrdeal(currentCardIndex);
+            RadioGroup radioGroup = findViewById(R.id.ordeal_multiple_choice_radio_group);
+            radioGroup.clearCheck();
+        }
+        else{
+            onBackPressed();
+        }
+    }
+
     public void multipleChoiceButtonPressed(View view){
-        Button input = (Button) view;
-        input.requestFocus();
-        userAnswer= input.getText().toString();
-        input.setBackgroundColor(getColor(R.color.selectedButton));
+        if(continueButton.getVisibility() != View.VISIBLE)
+        {
+            RadioButton input = (RadioButton) view;
+            userAnswer= input.getText().toString();
+            confirmButton.setVisibility(View.VISIBLE);
+        }
+
     }
 
     public void characterChoiceButtonPressed(View view){
@@ -193,6 +239,7 @@ public class OrdealPage extends AppCompatActivity {
        multiSelectLayout.setVisibility(View.GONE);
        answerFieldEditText.setVisibility(View.VISIBLE);
        helperButton.setVisibility(View.GONE);
+       continueButton.setVisibility(View.GONE);
    }
 
     private void charSelectLayoutSetup() {
@@ -200,14 +247,20 @@ public class OrdealPage extends AppCompatActivity {
        multiSelectLayout.setVisibility(View.GONE);
        helperButton.setVisibility(View.VISIBLE);
        answerFieldEditText.setVisibility(View.VISIBLE);
+       continueButton.setVisibility(View.GONE);
    }
 
     private void multiSelectLayoutSetup() {
+        // Hide other ordeal views
        charSelectLayout.setVisibility(View.GONE);
-       multiSelectLayout.setVisibility(View.VISIBLE);
-       answerFieldEditText.setVisibility(View.GONE);
        helperButton.setVisibility(View.GONE);
+       answerFieldEditText.setVisibility(View.GONE);
 
+       //show proper view
+       multiSelectLayout.setVisibility(View.VISIBLE);
+       continueButton.setVisibility(View.GONE);
+
+       //populate 4 choices
        ArrayList<FlashCard> ordealsCopy =(ArrayList<FlashCard>) ordeals.clone();
        FlashCard answerOrdeal = ordealsCopy.remove(currentCardIndex);
        Collections.shuffle(ordealsCopy);
@@ -219,16 +272,16 @@ public class OrdealPage extends AppCompatActivity {
        }
        Collections.shuffle(choices);
 
-       Button choice1= findViewById(R.id.ordeal_multiple_choice_button_1);
+       RadioButton choice1= findViewById(R.id.ordeal_multiple_choice_radio_button_1);
        choice1.setText(getStringFromType(choices.remove(0),ordealAnswerType));
 
-       Button choice2= findViewById(R.id.ordeal_multiple_choice_button_2);
+       RadioButton choice2= findViewById(R.id.ordeal_multiple_choice_radio_button_2);
        choice2.setText(getStringFromType(choices.remove(0),ordealAnswerType));
 
-       Button choice3= findViewById(R.id.ordeal_multiple_choice_button_3);
+       RadioButton choice3= findViewById(R.id.ordeal_multiple_choice_radio_button_3);
        choice3.setText(getStringFromType(choices.remove(0),ordealAnswerType));
 
-       Button choice4= findViewById(R.id.ordeal_multiple_choice_button_4);
+       RadioButton choice4= findViewById(R.id.ordeal_multiple_choice_radio_button_4);
        choice4.setText(getStringFromType(choices.remove(0),ordealAnswerType));
    }
 

@@ -93,6 +93,20 @@
             android:paddingBottom="@dimen/default_padding"
             android:text="@string/confirm_button"
             android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:id="@+id/ordeal_continue_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+            android:layout_weight="1"
+            android:autoSizeTextType="uniform"
+            android:onClick="continueButtonPressed"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingTop="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            android:paddingBottom="@dimen/default_padding"
+            android:text="@string/continue_button"
+            android:textSize="@dimen/button_text_size" />
     </LinearLayout>
 
 </LinearLayout>
