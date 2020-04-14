@@ -150,7 +150,11 @@ public class OrdealPage extends AppCompatActivity {
     public void confirmButtonPressed(View view){
         String alertMessage = getString(R.string.wrong_answer_message) + correctAnswer;
         String alertTitle = getString(R.string.wrong_answer_title);
-        if(userAnswer.equals(correctAnswer))
+        if(answerFieldEditText.getVisibility() == View.VISIBLE)
+        {
+            userAnswer = answerFieldEditText.getText().toString().trim();
+        }
+        if(userAnswer.equalsIgnoreCase(correctAnswer))
         {
             score = score + 1;
             setScore(score);
@@ -180,6 +184,7 @@ public class OrdealPage extends AppCompatActivity {
             loadOrdeal(currentCardIndex);
             RadioGroup radioGroup = findViewById(R.id.ordeal_multiple_choice_radio_group);
             radioGroup.clearCheck();
+            answerFieldEditText.setText("");
         }
         else{
             onBackPressed();
@@ -238,15 +243,17 @@ public class OrdealPage extends AppCompatActivity {
        charSelectLayout.setVisibility(View.GONE);
        multiSelectLayout.setVisibility(View.GONE);
        answerFieldEditText.setVisibility(View.VISIBLE);
+       answerFieldEditText.setFocusable(true);
        helperButton.setVisibility(View.GONE);
        continueButton.setVisibility(View.GONE);
    }
 
     private void charSelectLayoutSetup() {
-       charSelectLayout.setVisibility(View.VISIBLE);
        multiSelectLayout.setVisibility(View.GONE);
        helperButton.setVisibility(View.VISIBLE);
+       charSelectLayout.setVisibility(View.VISIBLE);
        answerFieldEditText.setVisibility(View.VISIBLE);
+       answerFieldEditText.setFocusable(false);
        continueButton.setVisibility(View.GONE);
    }
 
