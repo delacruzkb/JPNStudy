@@ -9,11 +9,9 @@ The second time I am making a flash card app. The first one was very clunky and 
 
 [ ] 3) Challenge Mode: User is tested based on the cards exposed to them, difficulty level based on how many times they have gotten it correct.
 
-[ ] + Multiple Choice (lvl 1) : User is presented 4 choices
+[X] + Multiple Choice (lvl 1) : User is presented 4 choices
   
-[ ] + Character Choice (lvl 2) : User is presented with a set amount of characters to answer with
-  
-[ ] + Key-in (lvl 3) : User must type in the answer
+[X] + Key-in (lvl 1) : User must type in the answer
 
 [ ] + Form a Sentence (EX 1) : User must form a sentence with the given words, checked with google translate
   
