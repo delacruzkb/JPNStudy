@@ -29,20 +29,14 @@ public class HomePage extends AppCompatActivity {
             case R.id.home_ordeal_button:
                 mode = getString(R.string.ordeal_label);
                 break;
-            default:
-                //TODO: error? do something
-                error=true;
-                break;
         }
-        if(!error)
-        {
-            intent.putExtra(getString(R.string.mode_key),mode);
-            startActivity(intent);
-        }
+        intent.putExtra(getString(R.string.mode_key),mode);
+        startActivity(intent);
 
     }
     public void records(View view){
-
+        Intent intent = new Intent(this,RecordsPage.class);
+        startActivity(intent);
     }
     public void settings(View view){
         Intent intent = new Intent(this,SettingsPage.class);

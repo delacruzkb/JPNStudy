@@ -32,12 +32,16 @@
     <string name="action_starred">Star</string>
     <string name="action_mastered">Mastered</string>
 
+    //CSV paths
+    <string name="collin_dictionary">collins-dictionary.csv</string>
+
     //Intent keys
     <string name="mode_key">mode</string>
     <string name="card_front_key">cardFront</string>
     <string name="card_back_key">cardBack</string>
     <string name="amount_key">amount</string>
     <string name="card_key">card</string>
+
     //Home Menu
     <string name="learn_label">Learn</string>
     <string name="hone_label">Hone</string>
@@ -87,14 +91,28 @@
 
     //Ordeal Page
     <string name="mode_ordeal_title">ORDEAL!</string>
-    <string name="backspace_button">Delete</string>
-    <string name="continue_button">Continue</string>
-    <string name="confirm_button">Confirm</string>
-    <string name="submit_button">Submit</string>
-    <string name="score_text">Cleared!</string>
-    <string name="correct_answer_title">Ordeal Cleared!</string>
-    <string name="correct_answer_message">Ordeal Cleared!</string>
-    <string name="wrong_answer_title">Ordeal Failed</string>
-    <string name="wrong_answer_message">Solution:</string>
-    <string name="ordeal_dialog_button">Got it!</string>
+    <string name="mode_ordeal_backspace_button">Delete</string>
+    <string name="mode_ordeal_continue_button">Continue</string>
+    <string name="mode_ordeal_confirm_button">Confirm</string>
+    <string name="mode_ordeal_submit_button">Submit</string>
+    <string name="mode_ordeal_score_text">Cleared!</string>
+    <string name="mode_ordeal_correct_answer_title">Ordeal Cleared!</string>
+    <string name="mode_ordeal_correct_answer_message">Ordeal Cleared!</string>
+    <string name="mode_ordeal_wrong_answer_title">Ordeal Failed</string>
+    <string name="mode_ordeal_wrong_answer_message">Solution:</string>
+    <string name="mode_ordeal_ordeal_dialog_button">Got it!</string>
+
+    //Settings Page
+    <string name="settings_default_database_warning">"Are you sure you want to revert to the default data set?"</string>
+    <string name="settings_default_database_title">Warning</string>
+    <string name="settings_default_database_confirm_button">Proceed</string>
+    <string name="settings_default_database_cancel_button">Cancel</string>
+    <string name="settings_add_term_button">Add Term</string>
+    <string name="settings_edit_term_button">Edit Term</string>
+    <string name="settings_clear_database_button">Clear Database</string>
+    <string name="settings_default_database_button">Default Database</string>
+
+    <string name="settings_loading_text_initial_load">Clearing Database...</string>
+    <string name="settings_loading_text_database_reading">Loading Cards into Database...</string>
+
 </resources>

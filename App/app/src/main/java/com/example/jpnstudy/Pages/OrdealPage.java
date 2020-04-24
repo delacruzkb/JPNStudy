@@ -56,7 +56,7 @@ public class OrdealPage extends AppCompatActivity {
 
         loadOrdeal(0);
     }
-    //TODO: star and master for ordeal?
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -144,8 +144,8 @@ public class OrdealPage extends AppCompatActivity {
     }
 
     public void confirmButtonPressed(View view){
-        String alertMessage = getString(R.string.wrong_answer_message) + correctAnswer;
-        String alertTitle = getString(R.string.wrong_answer_title);
+        String alertMessage = getString(R.string.mode_ordeal_wrong_answer_message) + correctAnswer;
+        String alertTitle = getString(R.string.mode_ordeal_wrong_answer_title);
         if(answerFieldEditText.getVisibility() == View.VISIBLE)
         {
             userAnswer = answerFieldEditText.getText().toString().trim();
@@ -154,15 +154,17 @@ public class OrdealPage extends AppCompatActivity {
         {
             score = score + 1;
             setScore(score);
-            alertMessage = getString(R.string.correct_answer_message);
-            alertTitle = getString(R.string.correct_answer_title);
+            alertMessage = getString(R.string.mode_ordeal_correct_answer_message);
+            alertTitle = getString(R.string.mode_ordeal_correct_answer_title);
             masterIcon.setVisible(true);
-            //TODO: manipulate right counter based on weight
+
+            currentOrdeal.increaseRightCounter(1);
+            //TODO: manipulate right counter based on weight have a variable for it
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         builder.setMessage(alertMessage);
         builder.setTitle(alertTitle);
-        builder.setPositiveButton(R.string.ordeal_dialog_button, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.mode_ordeal_ordeal_dialog_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //do nothing
@@ -282,7 +284,7 @@ public class OrdealPage extends AppCompatActivity {
     }
 
     private void setScore(int score) {
-        scoreTextView.setText(score +  " " + getString(R.string.score_text));
+        scoreTextView.setText(score +  " " + getString(R.string.mode_ordeal_score_text));
     }
     private void toggleStar(MenuItem item) {
         currentOrdeal.setStarred(!currentOrdeal.isStarred());
@@ -299,7 +301,7 @@ public class OrdealPage extends AppCompatActivity {
 
     private void toggleMaster(MenuItem item) {
         currentOrdeal.setMastered(!currentOrdeal.isMastered());
-        //TODO: UPDATE DAO star
+        //TODO: UPDATE DAO master
         if(currentOrdeal.isMastered())
         {
             item.setIcon(R.drawable.ic_mastered);

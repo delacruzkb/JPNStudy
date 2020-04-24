@@ -54,6 +54,17 @@ public class FlashCard implements Serializable {
         rightCounter=0;
     }
 
+    public void increaseRightCounter(int point)
+    {
+        setRightCounter(getRightCounter() + point);
+    }
+
+    public void decreaseRightCounter(int point) {
+        if(point< getRightCounter())
+            setRightCounter(getRightCounter() - point);
+        else
+            setRightCounter(0);
+    }
     public int getId() {
         return id;
     }
@@ -115,7 +126,14 @@ public class FlashCard implements Serializable {
     }
 
     public void setKanji(String kanji) {
-        this.kanji = kanji;
+        if(kanji.equalsIgnoreCase("null"))
+        {
+            this.kanji = kanji;
+        }
+        else {
+            this.kanji = null;
+        }
+
     }
 
     public String getType() {

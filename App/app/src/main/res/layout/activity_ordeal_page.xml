@@ -71,7 +71,7 @@
             android:paddingTop="@dimen/default_padding"
             android:paddingRight="@dimen/default_padding"
             android:paddingBottom="@dimen/default_padding"
-            android:text="@string/backspace_button"
+            android:text="@string/mode_ordeal_backspace_button"
             android:textSize="@dimen/button_text_size" />
 
         <Button
@@ -85,7 +85,7 @@
             android:paddingTop="@dimen/default_padding"
             android:paddingRight="@dimen/default_padding"
             android:paddingBottom="@dimen/default_padding"
-            android:text="@string/confirm_button"
+            android:text="@string/mode_ordeal_confirm_button"
             android:textSize="@dimen/button_text_size" />
 
         <Button
@@ -99,7 +99,7 @@
             android:paddingTop="@dimen/default_padding"
             android:paddingRight="@dimen/default_padding"
             android:paddingBottom="@dimen/default_padding"
-            android:text="@string/continue_button"
+            android:text="@string/mode_ordeal_continue_button"
             android:textSize="@dimen/button_text_size" />
     </LinearLayout>
 

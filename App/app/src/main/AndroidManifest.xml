@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Pages.FlashCardPage">
-        </activity>
+        <activity android:name=".Pages.RecordsPage"></activity>
+        <activity android:name=".Pages.FlashCardPage"></activity>
         <activity android:name=".Pages.ModeMenu" />
         <activity
             android:name=".Pages.HomePage"
@@ -21,17 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Pages.OrdealPage">
-        </activity>
+        <activity android:name=".Pages.OrdealPage"></activity>
         <activity
             android:name=".Pages.SettingsPage"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
-        <activity android:name=".Pages.AddCardPage">
-        </activity>
-        <activity
-            android:name=".Pages.SearchPage">
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".Pages.AddCardPage"></activity>
+        <activity android:name=".Pages.SearchPage"></activity>
     </application>
 
 </manifest>

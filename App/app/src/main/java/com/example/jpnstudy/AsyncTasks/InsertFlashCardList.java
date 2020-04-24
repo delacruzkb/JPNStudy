@@ -16,6 +16,16 @@ public class InsertFlashCardList extends AsyncTask<ArrayList<FlashCard>,Void,Voi
     }
 
     @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+    }
+
+    @Override
     protected Void doInBackground(ArrayList<FlashCard>... flashCard) {
         ArrayList<FlashCard> cards= flashCard[0];
         for(int i =0; i<cards.size();i++)

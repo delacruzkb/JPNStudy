@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Pages.SettingsPage">
 
     <LinearLayout
+        android:id="@+id/settings_buttons_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <Button
@@ -16,28 +18,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="addNewTerm"
-            android:text="Add Term" />
+            android:text="@string/settings_add_term_button" />
 
         <Button
             android:id="@+id/settings_edit_remove_term_button"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:onClick="editRemoveTerm"
-            android:text="Edit / Remove Term" />
+            android:text="@string/settings_edit_term_button" />
 
         <Button
             android:id="@+id/settings_clear_database_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="clearDatabase"
-            android:text="Clear Database" />
+            android:text="@string/settings_clear_database_button" />
 
         <Button
             android:id="@+id/settings_default_database_button"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:onClick="defaultDatabase"
-            android:text="Default database" />
+            android:text="@string/settings_default_database_button" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/settings_loading_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+        android:autoSizeTextType="uniform"
+        android:padding="@dimen/default_padding"
+        android:text="@string/settings_loading_text" />
+
+    <ProgressBar
+        android:id="@+id/settings_loading_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ordeal_multiple_choice_button_height"
+        android:padding="@dimen/default_padding" />
+
+</LinearLayout>

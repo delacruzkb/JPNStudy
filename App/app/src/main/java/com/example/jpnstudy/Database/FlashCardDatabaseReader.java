@@ -1,12 +1,14 @@
 package com.example.jpnstudy.Database;
 
 import android.content.Context;
+import android.widget.ProgressBar;
 
 import androidx.room.Room;
 
 import com.example.jpnstudy.AsyncTasks.DeleteFlashCard;
 import com.example.jpnstudy.AsyncTasks.InsertFlashCard;
 import com.example.jpnstudy.AsyncTasks.InsertFlashCardList;
+import com.example.jpnstudy.AsyncTasks.LoadDefaultDatabase;
 import com.example.jpnstudy.AsyncTasks.SearchFlashCardEnglish;
 import com.example.jpnstudy.AsyncTasks.SearchFlashCardHiragana;
 import com.example.jpnstudy.AsyncTasks.SearchFlashCardKanji;
@@ -20,7 +22,9 @@ import java.util.ArrayList;
 
 public class FlashCardDatabaseReader {
     FlashCardDatabase db;
+    Context context;
     public FlashCardDatabaseReader(Context context){
+        this.context = context;
         db = Room.databaseBuilder(context.getApplicationContext(), FlashCardDatabase.class, "flashcard").build();
     }
 
@@ -34,7 +38,7 @@ public class FlashCardDatabaseReader {
         insertFlashCard.execute(flashCard);
     }
 
-    public void insertFlasCardList(ArrayList<FlashCard> flashCards){
+    public void insertFlashCardList(ArrayList<FlashCard> flashCards){
         InsertFlashCardList insertFlashCardList = new InsertFlashCardList(db);
         insertFlashCardList.execute(flashCards);
     }
@@ -187,6 +191,11 @@ public class FlashCardDatabaseReader {
         }
 
         return flashCards;
+    }
+
+    public void loadDefaultDatabase(ArrayList<FlashCard> cards, ProgressBar loadingBar) {
+        LoadDefaultDatabase loader = new LoadDefaultDatabase(db, context,loadingBar);
+        loader.execute(cards);
     }
 
 }
